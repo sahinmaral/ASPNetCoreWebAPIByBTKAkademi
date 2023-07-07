@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntroToWebAPI", "IntroToWeb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApp", "ProductApp\ProductApp.csproj", "{3D4DF8C1-487D-4317-89B0-8A0872F3B890}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookDemoWebAPI", "BookDemoWebAPI\BookDemoWebAPI.csproj", "{516CB0A4-24BD-48F8-ACFF-614C89027507}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{3D4DF8C1-487D-4317-89B0-8A0872F3B890}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D4DF8C1-487D-4317-89B0-8A0872F3B890}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D4DF8C1-487D-4317-89B0-8A0872F3B890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{516CB0A4-24BD-48F8-ACFF-614C89027507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{516CB0A4-24BD-48F8-ACFF-614C89027507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{516CB0A4-24BD-48F8-ACFF-614C89027507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{516CB0A4-24BD-48F8-ACFF-614C89027507}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
