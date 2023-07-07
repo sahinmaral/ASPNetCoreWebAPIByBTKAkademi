@@ -30,7 +30,7 @@ namespace BookDemoWebAPI.Controllers
             if (book.Title.Length == 0) return BadRequest("Title of new book must be filled");
 
             Book existedBook = InMemoryContext.Books.SingleOrDefault(x => x.Title.Equals(book.Title));
-            if (existedBook is not null) return BadRequest($"Book with {book.Title} has already added");
+            if (existedBook is not null) return BadRequest($"Book with {book.Title} title has already added");
 
             InMemoryContext.Books.Add(book);
             return Ok($"Book with {book.Title} has been added");
@@ -54,7 +54,7 @@ namespace BookDemoWebAPI.Controllers
             if (foundProduct is null) return NotFound($"Book with {id} ID could not found");
 
             InMemoryContext.Books.Remove(foundProduct);
-            return Ok(foundProduct);
+            return Ok($"Book with {foundProduct.Title} has been deleted");
         }
 
     }

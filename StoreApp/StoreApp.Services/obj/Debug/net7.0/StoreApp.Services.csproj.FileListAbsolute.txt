@@ -1,0 +1,17 @@
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\bin\Debug\net7.0\StoreApp.Services.deps.json
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\bin\Debug\net7.0\StoreApp.Services.dll
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\bin\Debug\net7.0\StoreApp.Services.pdb
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\bin\Debug\net7.0\StoreApp.Entities.dll
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\bin\Debug\net7.0\StoreApp.Repositories.dll
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\bin\Debug\net7.0\StoreApp.Entities.pdb
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\bin\Debug\net7.0\StoreApp.Repositories.pdb
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\obj\Debug\net7.0\StoreApp.Services.csproj.AssemblyReference.cache
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\obj\Debug\net7.0\StoreApp.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\obj\Debug\net7.0\StoreApp.Services.AssemblyInfoInputs.cache
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\obj\Debug\net7.0\StoreApp.Services.AssemblyInfo.cs
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\obj\Debug\net7.0\StoreApp.Services.csproj.CoreCompileInputs.cache
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\obj\Debug\net7.0\StoreApp.Services.csproj.CopyComplete
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\obj\Debug\net7.0\StoreApp.Services.dll
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\obj\Debug\net7.0\refint\StoreApp.Services.dll
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\obj\Debug\net7.0\StoreApp.Services.pdb
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\obj\Debug\net7.0\ref\StoreApp.Services.dll

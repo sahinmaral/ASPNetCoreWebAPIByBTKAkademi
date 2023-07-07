@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HHjc+MVQScp2/LSZTRJ4anB8b6jgESMQvbwRh/4koHsQZyA9DiYiSzENO7ImWfR7j1JRTGFX2YRD3Acah4eacA==",
+  "dgSpecHash": "ILvAQrrk69JX82PshpKUPa+McN8roG0FZlfh8KO66mE85FuVpByBwACEOt4fdo4zKi6q/MWdjTIbSJNcR3ky+A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\IntroToWebAPI\\IntroToWebAPI.csproj",
+  "projectFilePath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\IntroToWebAPI\\IntroToWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",

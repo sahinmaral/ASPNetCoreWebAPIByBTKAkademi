@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HfrgwQOzHhgR4MboMCYcNIqTdFg0WTpJodmuS8shn0NhUVV6UTsebNta52q6qKNK4ZsSZ2PWmqax/BMb2LFFfQ==",
+  "dgSpecHash": "sKWvPs/x//92Mk3nzFn0CP5QxodTne7O96wj9gNkoIgR0O1cJVKrx4Yg0XHzg12j/Ctd+ePyQ8i6YJF+/r4U/w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\BookDemoWebAPI\\BookDemoWebAPI.csproj",
+  "projectFilePath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\BookDemoWebAPI\\BookDemoWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

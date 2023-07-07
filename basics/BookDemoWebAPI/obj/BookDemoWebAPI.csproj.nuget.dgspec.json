@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\BookDemoWebAPI\\BookDemoWebAPI.csproj": {}
+    "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\BookDemoWebAPI\\BookDemoWebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\BookDemoWebAPI\\BookDemoWebAPI.csproj": {
+    "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\BookDemoWebAPI\\BookDemoWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\BookDemoWebAPI\\BookDemoWebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\BookDemoWebAPI\\BookDemoWebAPI.csproj",
         "projectName": "BookDemoWebAPI",
-        "projectPath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\BookDemoWebAPI\\BookDemoWebAPI.csproj",
+        "projectPath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\BookDemoWebAPI\\BookDemoWebAPI.csproj",
         "packagesPath": "C:\\Users\\sahin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\BookDemoWebAPI\\obj\\",
+        "outputPath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\BookDemoWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

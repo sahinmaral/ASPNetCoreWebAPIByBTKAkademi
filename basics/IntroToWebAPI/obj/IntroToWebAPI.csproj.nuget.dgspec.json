@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\IntroToWebAPI\\IntroToWebAPI.csproj": {}
+    "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\IntroToWebAPI\\IntroToWebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\IntroToWebAPI\\IntroToWebAPI.csproj": {
+    "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\IntroToWebAPI\\IntroToWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\IntroToWebAPI\\IntroToWebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\IntroToWebAPI\\IntroToWebAPI.csproj",
         "projectName": "IntroToWebAPI",
-        "projectPath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\IntroToWebAPI\\IntroToWebAPI.csproj",
+        "projectPath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\IntroToWebAPI\\IntroToWebAPI.csproj",
         "packagesPath": "C:\\Users\\sahin\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\IntroToWebAPI\\obj\\",
         "projectStyle": "PackageReference",

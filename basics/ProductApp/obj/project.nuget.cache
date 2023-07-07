@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ldua+6KcF02mBwpb+Gs0ApIVJS/89QV3TlfBRdSf8rPjMBNuEgTM4+IX796QtLpFu5nHhnx1w6O/0e29oKt+AQ==",
+  "dgSpecHash": "5Pxg0JaU2/my960iQwMlpBZS0B/MMOwjH/UihWG050xK1sGv2A4QNnSGx0IM6hQiJLFNPygFw6ApAm/4hqr2VQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\basics\\ProductApp\\ProductApp.csproj",
+  "projectFilePath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\Basics\\ProductApp\\ProductApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

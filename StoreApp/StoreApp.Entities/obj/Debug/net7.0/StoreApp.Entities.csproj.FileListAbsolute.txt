@@ -1,0 +1,12 @@
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\bin\Debug\net7.0\StoreApp.Entities.deps.json
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\bin\Debug\net7.0\StoreApp.Entities.dll
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\bin\Debug\net7.0\StoreApp.Entities.pdb
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\obj\Debug\net7.0\StoreApp.Entities.csproj.AssemblyReference.cache
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\obj\Debug\net7.0\StoreApp.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\obj\Debug\net7.0\StoreApp.Entities.AssemblyInfoInputs.cache
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\obj\Debug\net7.0\StoreApp.Entities.AssemblyInfo.cs
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\obj\Debug\net7.0\StoreApp.Entities.csproj.CoreCompileInputs.cache
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\obj\Debug\net7.0\StoreApp.Entities.dll
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\obj\Debug\net7.0\refint\StoreApp.Entities.dll
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\obj\Debug\net7.0\StoreApp.Entities.pdb
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Entities\obj\Debug\net7.0\ref\StoreApp.Entities.dll
