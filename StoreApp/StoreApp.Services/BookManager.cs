@@ -23,7 +23,7 @@ namespace StoreApp.Services
             _mapper = mapper;
         }
 
-        public void Create(BookDtoForCreate dto)
+        public BookDto Create(BookDtoForCreate dto)
         {
 
             Book? existedBook = _repositoryManager.BookRepository.GetAllByCondition(x => x.Title.Equals(dto.Title),false).SingleOrDefault();
@@ -35,8 +35,11 @@ namespace StoreApp.Services
                 throw new InvalidOperationException(message);
             }
 
-            _repositoryManager.BookRepository.Create(_mapper.Map<Book>(dto));
+            Book entity = _mapper.Map<Book>(dto);
+            _repositoryManager.BookRepository.Create(entity);
             _repositoryManager.Save();
+
+            return _mapper.Map<BookDto>(entity);
         }
 
         public void Delete(int id)
@@ -53,19 +56,31 @@ namespace StoreApp.Services
             _repositoryManager.Save();
         }
 
-        public IEnumerable<Book> GetAll(bool trackChanges)
+        public IEnumerable<BookDto> GetAll(bool trackChanges)
         {
-            return _repositoryManager.BookRepository.GetAll(trackChanges);
+            return _mapper.Map<IEnumerable<BookDto>>(_repositoryManager.BookRepository.GetAll(trackChanges));
         }
 
-        public IQueryable<Book> GetAllByCondition(Expression<Func<Book, bool>> expression, bool trackChanges = false)
+        public IQueryable<BookDto> GetAllByCondition(Expression<Func<Book, bool>> expression, bool trackChanges = false)
         {
-            return _repositoryManager.BookRepository.GetAllByCondition(expression,trackChanges);
+            return _mapper.Map<IQueryable<BookDto>>(_repositoryManager.BookRepository.GetAllByCondition(expression,trackChanges));
         }
 
-        public Book? GetById(int id,bool trackChanges)
+        public BookDto? GetById(int id,bool trackChanges)
         {
-            return _repositoryManager.BookRepository.GetById(id,trackChanges);
+            return _mapper.Map<BookDto>(_repositoryManager.BookRepository.GetById(id, trackChanges));
+        }
+
+        public BookDtoForUpdate GetByIdForPatch(int id, bool trackChanges = false)
+        {
+            var book = _repositoryManager.BookRepository.GetById(id, trackChanges);
+
+            if (book is null)
+                throw new BookNotFoundException(id);
+
+            var bookDtoForUpdate = _mapper.Map<BookDtoForUpdate>(book);
+
+            return bookDtoForUpdate;
         }
 
         public void Update(int id, BookDtoForUpdate dto)
@@ -81,5 +96,6 @@ namespace StoreApp.Services
             _repositoryManager.BookRepository.Update(_mapper.Map<Book>(dto));
             _repositoryManager.Save();
         }
+
     }
 }

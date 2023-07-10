@@ -1,4 +1,5 @@
-﻿using StoreApp.Entities.Models.Abstract;
+﻿using StoreApp.Entities.DTOs;
+using StoreApp.Entities.Models.Abstract;
 
 using System.Linq.Expressions;
 

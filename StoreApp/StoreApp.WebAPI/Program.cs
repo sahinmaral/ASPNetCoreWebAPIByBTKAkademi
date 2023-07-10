@@ -1,4 +1,5 @@
-using StoreApp.Presentation;
+using Microsoft.AspNetCore.Mvc;
+
 using StoreApp.Services.Abstract;
 using StoreApp.WebAPI.Extensions;
 using StoreApp.WebAPI.Utilities.Mapping;
@@ -11,7 +12,13 @@ builder.Services.ConfigureLogging();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
-builder.Services.AddControllers().AddApplicationPart(typeof(AssemblyReference).Assembly);
+builder.Services.ConfigureControllers();
+
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

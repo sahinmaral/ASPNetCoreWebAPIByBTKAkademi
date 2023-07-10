@@ -7,8 +7,9 @@ namespace StoreApp.WebAPI.Utilities.Mapping
 {
     public class MappingProfile : Profile
     {
-        protected MappingProfile()
+        public MappingProfile()
         {
+            CreateMap<Book, BookDto>();
             CreateMap<BookDtoForCreate, Book>();
             CreateMap<Book, BookDtoForUpdate>().ReverseMap();
         }

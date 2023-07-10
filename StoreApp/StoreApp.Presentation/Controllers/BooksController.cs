@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
+﻿
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
 using StoreApp.Entities.DTOs;
-using StoreApp.Entities.Models;
-using StoreApp.Entities.Models.Abstract;
 using StoreApp.Services.Abstract;
 
 namespace StoreApp.WebAPI.Controllers
@@ -36,15 +35,21 @@ namespace StoreApp.WebAPI.Controllers
         [HttpPost]
         public IActionResult InsertBook([FromBody] BookDtoForCreate dto)
         {
-            _serviceManager.BookService.Create(dto);
-            return Ok($"Book with {dto.Title} has been added");
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
+            var book = _serviceManager.BookService.Create(dto);
+            return StatusCode(201,book);
         }
 
         [HttpPut("{id}")]
         public IActionResult UpdateBook([FromRoute] int id, [FromBody] BookDtoForUpdate dto)
         {
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
             _serviceManager.BookService.Update(id, dto);
-            return Ok(dto);
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
@@ -52,7 +57,24 @@ namespace StoreApp.WebAPI.Controllers
         {
             _serviceManager.BookService.Delete(id);
             return Ok($"Book with {id} id has been deleted");
+        }
 
+        [HttpPatch("{id:int}")]
+        public IActionResult PartiallyUpdateOneBook([FromRoute(Name = "id")] int id,
+        [FromBody] JsonPatchDocument<BookDtoForUpdate> bookPatch)
+        {
+            BookDtoForUpdate dto = _serviceManager.BookService.GetByIdForPatch(id);
+
+            bookPatch.ApplyTo(dto);
+
+            TryValidateModel(dto);
+
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
+            _serviceManager.BookService.Update(id, dto);
+
+            return NoContent(); 
         }
     }
 }

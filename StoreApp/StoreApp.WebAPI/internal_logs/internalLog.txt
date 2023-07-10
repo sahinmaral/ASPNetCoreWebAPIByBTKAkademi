@@ -49,3 +49,63 @@
 2023-07-10 12:31:11.0528 Info Message Template Auto Format enabled
 2023-07-10 12:31:11.0937 Info Registered target NLog.Targets.FileTarget(Name=file)
 2023-07-10 12:31:11.1045 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 12:59:18.5476 Info AppDomain Shutting down. LogFactory closing...
+2023-07-10 12:59:18.5476 Info LogFactory has been closed.
+2023-07-10 12:59:24.0615 Info Message Template Auto Format enabled
+2023-07-10 12:59:24.1078 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 12:59:24.1194 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 13:04:46.8386 Info Message Template Auto Format enabled
+2023-07-10 13:04:46.8823 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 13:04:46.8951 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 13:08:14.7835 Info Message Template Auto Format enabled
+2023-07-10 13:08:14.8358 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 13:08:14.8480 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 13:11:00.8863 Info AppDomain Shutting down. LogFactory closing...
+2023-07-10 13:11:00.8863 Info LogFactory has been closed.
+2023-07-10 13:12:40.0068 Info Message Template Auto Format enabled
+2023-07-10 13:12:40.0603 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 13:12:40.0780 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 13:30:03.4070 Info Message Template Auto Format enabled
+2023-07-10 13:30:03.4555 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 13:30:03.4678 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 13:37:53.7374 Info Message Template Auto Format enabled
+2023-07-10 13:37:53.7793 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 13:37:53.7793 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 13:38:18.9775 Info Message Template Auto Format enabled
+2023-07-10 13:38:19.0198 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 13:38:19.0306 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 13:52:25.3132 Info Message Template Auto Format enabled
+2023-07-10 13:52:25.3584 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 13:52:25.3708 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 15:08:13.7778 Info AppDomain Shutting down. LogFactory closing...
+2023-07-10 15:08:13.7778 Info LogFactory has been closed.
+2023-07-10 17:59:36.6181 Info Message Template Auto Format enabled
+2023-07-10 17:59:36.6689 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 17:59:36.6689 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 18:05:48.1169 Info AppDomain Shutting down. LogFactory closing...
+2023-07-10 18:05:48.1236 Info LogFactory has been closed.
+2023-07-10 18:08:28.0279 Info Message Template Auto Format enabled
+2023-07-10 18:08:28.0782 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 18:08:28.0915 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 18:27:16.5903 Info AppDomain Shutting down. LogFactory closing...
+2023-07-10 18:27:16.5903 Info LogFactory has been closed.
+2023-07-10 18:39:34.3029 Info Message Template Auto Format enabled
+2023-07-10 18:39:34.3482 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 18:39:34.3610 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 18:40:48.9429 Info Message Template Auto Format enabled
+2023-07-10 18:40:49.0010 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 18:40:49.0179 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 18:43:04.1350 Info Message Template Auto Format enabled
+2023-07-10 18:43:04.1750 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 18:43:04.1861 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 18:45:22.2340 Info Message Template Auto Format enabled
+2023-07-10 18:45:22.2862 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 18:45:22.2980 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 18:57:03.6289 Info Message Template Auto Format enabled
+2023-07-10 18:57:03.6695 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 18:57:03.6695 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 19:02:44.0981 Info Message Template Auto Format enabled
+2023-07-10 19:02:44.1412 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-10 19:02:44.1520 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-10 21:29:46.9083 Info AppDomain Shutting down. LogFactory closing...
+2023-07-10 21:29:46.9174 Info LogFactory has been closed.
