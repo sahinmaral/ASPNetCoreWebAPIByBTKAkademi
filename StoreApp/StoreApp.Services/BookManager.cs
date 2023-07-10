@@ -1,34 +1,41 @@
-﻿using StoreApp.Entities.Models;
+﻿using AutoMapper;
+
+using StoreApp.Entities.DTOs;
+using StoreApp.Entities.Enums;
+using StoreApp.Entities.Models;
+using StoreApp.Entities.Models.Exceptions;
 using StoreApp.Repositories.Abstract;
 using StoreApp.Services.Abstract;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StoreApp.Services
 {
     public class BookManager : IBookService
     {
         private readonly IRepositoryManager _repositoryManager;
-
-        public BookManager(IRepositoryManager repositoryManager)
+        private readonly ILoggerService _loggerService;
+        private readonly IMapper _mapper;
+        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService, IMapper mapper)
         {
             _repositoryManager = repositoryManager;
+            _loggerService = loggerService;
+            _mapper = mapper;
         }
 
-        public void Create(Book entity)
+        public void Create(BookDtoForCreate dto)
         {
-            if (entity is null)
-                throw new NullReferenceException(nameof(entity));
 
-            Book? existedBook = _repositoryManager.BookRepository.GetAllByCondition(x => x.Title.Equals(entity.Title),false).SingleOrDefault();
-            if (existedBook is not null) throw new InvalidOperationException($"Book with {entity.Title} title has already added");
+            Book? existedBook = _repositoryManager.BookRepository.GetAllByCondition(x => x.Title.Equals(dto.Title),false).SingleOrDefault();
+            if (existedBook is not null)
+            {
+                string message = $"Book with {dto.Title} title has already added";
 
-            _repositoryManager.BookRepository.Create(entity);
+                _loggerService.Log(message,LogTypes.Info);
+                throw new InvalidOperationException(message);
+            }
+
+            _repositoryManager.BookRepository.Create(_mapper.Map<Book>(dto));
             _repositoryManager.Save();
         }
 
@@ -36,7 +43,11 @@ namespace StoreApp.Services
         {
             var foundEntity = _repositoryManager.BookRepository.GetById(id,false);
             if (foundEntity is null)
-                throw new NullReferenceException($"Book with {id} id could not found");
+            {
+                string message = $"Book with {id} id could not found";
+                _loggerService.Log(message,LogTypes.Info);
+                throw new BookNotFoundException(id);
+            }
 
             _repositoryManager.BookRepository.Delete(foundEntity);
             _repositoryManager.Save();
@@ -57,19 +68,17 @@ namespace StoreApp.Services
             return _repositoryManager.BookRepository.GetById(id,trackChanges);
         }
 
-        public void Update(int id,Book entity)
+        public void Update(int id, BookDtoForUpdate dto)
         {
             var foundEntity = _repositoryManager.BookRepository.GetById(id, false);
             if (foundEntity is null)
-                throw new NullReferenceException($"Book with {id} id could not found");
+            {
+                string message = $"Book with {id} id could not found";
+                _loggerService.Log(message, LogTypes.Info);
+                throw new BookNotFoundException(id);
+            }
 
-            if(entity is null)
-                throw new NullReferenceException(nameof(entity));
-
-            foundEntity.Title = entity.Title;
-            foundEntity.Price = entity.Price;
-
-            _repositoryManager.BookRepository.Update(foundEntity);
+            _repositoryManager.BookRepository.Update(_mapper.Map<Book>(dto));
             _repositoryManager.Save();
         }
     }

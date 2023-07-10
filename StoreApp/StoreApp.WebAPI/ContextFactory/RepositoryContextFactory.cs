@@ -9,6 +9,7 @@ namespace StoreApp.WebAPI.ContextFactory
     {
         public StoreAppDbContext CreateDbContext(string[] args)
         {
+
             var configuration = new ConfigurationBuilder()
                  .SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
 

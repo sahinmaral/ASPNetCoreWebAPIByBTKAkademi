@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
+using StoreApp.Entities.DTOs;
 using StoreApp.Entities.Models;
+using StoreApp.Entities.Models.Abstract;
 using StoreApp.Services.Abstract;
 
 namespace StoreApp.WebAPI.Controllers
@@ -10,7 +12,6 @@ namespace StoreApp.WebAPI.Controllers
     public class BooksController : ControllerBase
     {
         private readonly IServiceManager _serviceManager;
-
         public BooksController(IServiceManager serviceManager)
         {
             _serviceManager = serviceManager;
@@ -25,62 +26,33 @@ namespace StoreApp.WebAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetBookById([FromRoute] int id)
         {
-            try
-            {
-                var foundProduct = _serviceManager.BookService.GetById(id);
-                return Ok(foundProduct);
-            }
-            catch (Exception exception)
-            {
-                return BadRequest(exception.Message);
-            }
-            
+
+            var foundProduct = _serviceManager.BookService.GetById(id);
+            if (foundProduct is null) return NotFound();
+
+            return Ok(foundProduct);
         }
 
         [HttpPost]
-        public IActionResult InsertBook([FromBody] Book book)
+        public IActionResult InsertBook([FromBody] BookDtoForCreate dto)
         {
-            try
-            {
-                _serviceManager.BookService.Create(book);
-                return Ok($"Book with {book.Title} has been added");
-            }
-            catch (Exception exception)
-            {
-                return BadRequest(exception.Message);
-            }
-
-            
+            _serviceManager.BookService.Create(dto);
+            return Ok($"Book with {dto.Title} has been added");
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBook([FromRoute] int id, [FromBody] Book book)
+        public IActionResult UpdateBook([FromRoute] int id, [FromBody] BookDtoForUpdate dto)
         {
-            try
-            {
-                _serviceManager.BookService.Update(id, book);
-                return Ok(book);
-            }
-            catch (Exception exception)
-            {
-                return BadRequest(exception.Message);
-            }
-
-
+            _serviceManager.BookService.Update(id, dto);
+            return Ok(dto);
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeleteBook([FromRoute] int id)
         {
-            try
-            {
-                _serviceManager.BookService.Delete(id);
-                return Ok($"Book with {id} id has been deleted");
-            }
-            catch (Exception exception)
-            {
-                return BadRequest(exception.Message);
-            }
+            _serviceManager.BookService.Delete(id);
+            return Ok($"Book with {id} id has been deleted");
+
         }
     }
 }

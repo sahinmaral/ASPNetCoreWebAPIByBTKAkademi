@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+using NLog;
+
 using StoreApp.Repositories.Abstract;
 using StoreApp.Repositories.EFCore;
 using StoreApp.Services;
@@ -25,6 +27,12 @@ namespace StoreApp.WebAPI.Extensions
         public static void RegisterServices(this IServiceCollection services)
         {
             services.AddScoped<IServiceManager, ServiceManager>();
+        }
+
+        public static void ConfigureLogging(this IServiceCollection services)
+        {
+            LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(),"./nlog.config"));
+            services.AddSingleton<ILoggerService, LoggerManager>();
         }
     }
 }
