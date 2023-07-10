@@ -19,5 +19,10 @@ namespace StoreApp.Repositories.EFCore
         {
             _context.SaveChanges();
         }
+
+        public async Task SaveAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }

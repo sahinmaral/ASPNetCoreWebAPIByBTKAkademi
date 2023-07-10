@@ -39,6 +39,11 @@ namespace StoreApp.Repositories.EFCore
             return trackChanges ? _context.Set<T>().SingleOrDefault(x => x.Id == id) : _context.Set<T>().AsNoTracking().SingleOrDefault(x => x.Id == id);
         }
 
+        public async Task<T?> GetByIdAsync(int id, bool trackChanges)
+        {
+            return trackChanges ? await _context.Set<T>().SingleOrDefaultAsync(x => x.Id == id) : await _context.Set<T>().AsNoTracking().SingleOrDefaultAsync(x => x.Id == id);
+        }
+
         public void Update(T entity)
         {
             _context.Set<T>().Update(entity);

@@ -8,6 +8,7 @@ using StoreApp.Services;
 using StoreApp.Services.Abstract;
 
 using System.ComponentModel.Design;
+using StoreApp.Presentation.ActionFilters;
 
 namespace StoreApp.WebAPI.Extensions
 {
@@ -50,9 +51,13 @@ namespace StoreApp.WebAPI.Extensions
                 .AddNewtonsoftJson(opt =>
                     opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
+        }
 
-
-
+        public static void ConfigureActionFilters(this IServiceCollection services)
+        {
+            services.AddScoped<ValidationFilterAttribute>();
+            services.AddSingleton<LogFilterAttribute>();
+            services.AddScoped(typeof(NotFoundFilterAttribute<>));
         }
     }
 }

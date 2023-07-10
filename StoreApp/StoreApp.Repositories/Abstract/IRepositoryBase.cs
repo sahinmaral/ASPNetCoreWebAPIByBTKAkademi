@@ -10,6 +10,7 @@ namespace StoreApp.Repositories.Abstract
         IQueryable<T> GetAll(bool trackChanges);
         IQueryable<T> GetAllByCondition(Expression<Func<T,bool>> expression, bool trackChanges);
         T? GetById(int id,bool trackChanges);
+        Task<T?> GetByIdAsync(int id, bool trackChanges);
         void Create(T entity);
         void Update(T entity);
         void Delete(T entity);

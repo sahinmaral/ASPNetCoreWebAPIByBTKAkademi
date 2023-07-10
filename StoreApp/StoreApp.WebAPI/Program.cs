@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
+using StoreApp.Presentation.ActionFilters;
 using StoreApp.Services.Abstract;
 using StoreApp.WebAPI.Extensions;
 using StoreApp.WebAPI.Utilities.Mapping;
@@ -13,6 +14,8 @@ builder.Services.ConfigureLogging();
 builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 builder.Services.ConfigureControllers();
+
+builder.Services.ConfigureActionFilters();
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {

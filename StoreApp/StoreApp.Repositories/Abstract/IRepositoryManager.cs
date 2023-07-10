@@ -4,5 +4,6 @@
     {
         IBookRepository BookRepository { get; }
         void Save();
+        Task SaveAsync();
     }
 }
