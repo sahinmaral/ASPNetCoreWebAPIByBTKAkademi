@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace StoreApp.Services.Abstract
 {
-    public interface IBookService
+    public interface IBookService : IServiceBase<Book>
     {
         //void UpdateForPatch(BookDtoForUpdate bookDtoForUpdate, Book book);
         BookDto? GetById(int id, bool trackChanges = false);

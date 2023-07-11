@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 using StoreApp.Entities.Models.Abstract;
 using StoreApp.Entities.Models.Exceptions;
+using StoreApp.Services;
 using StoreApp.Services.Abstract;
 
 using System;
@@ -30,8 +31,14 @@ namespace StoreApp.Presentation.ActionFilters
             }
 
             var entityId = (int)entityIdValue;
-            var anyEntity = await _serviceManager.BookService.GetByIdAsync(entityId);
-            if (anyEntity is not null)
+
+            var serviceManagerAllServicesPropertyInfos = _serviceManager.GetType().GetProperties();
+            var serviceManagerRequiredServicePropertyInfo = serviceManagerAllServicesPropertyInfos.First(p => p.Name.Contains(typeof(T).Name));
+
+            var requiredService = (IServiceBase<T>)_serviceManager[serviceManagerRequiredServicePropertyInfo.Name];
+            
+            var anyEntity = await requiredService.AnyAsync(x => x.Id == entityId);
+            if (anyEntity)
             {
                 await next();
                 return;

@@ -3,6 +3,8 @@
 using StoreApp.Entities.Models.Abstract;
 using StoreApp.Repositories.Abstract;
 
+using System.Linq.Expressions;
+
 namespace StoreApp.Repositories.EFCore
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T: class,IEntity
@@ -12,6 +14,11 @@ namespace StoreApp.Repositories.EFCore
         public RepositoryBase(StoreAppDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
+        {
+            return await _context.Set<T>().AnyAsync(expression);
         }
 
         public void Create(T entity)

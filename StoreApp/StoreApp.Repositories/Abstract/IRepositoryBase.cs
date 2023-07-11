@@ -7,6 +7,7 @@ namespace StoreApp.Repositories.Abstract
 {
     public interface IRepositoryBase<T> where T: class,IEntity
     {
+        Task<bool> AnyAsync(Expression<Func<T, bool>> expression);
         IQueryable<T> GetAll(bool trackChanges);
         IQueryable<T> GetAllByCondition(Expression<Func<T,bool>> expression, bool trackChanges);
         T? GetById(int id,bool trackChanges);

@@ -23,6 +23,11 @@ namespace StoreApp.Services
             _mapper = mapper;
         }
 
+        public async Task<bool> AnyAsync(Expression<Func<Book, bool>> expression)
+        {
+            return await _repositoryManager.BookRepository.AnyAsync(expression);
+        }
+
         public BookDto Create(BookDtoForCreate dto)
         {
             Book? existedBook = _repositoryManager.BookRepository.GetAllByCondition(x => x.Title.Equals(dto.Title),false).SingleOrDefault();
