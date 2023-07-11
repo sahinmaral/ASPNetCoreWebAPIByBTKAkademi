@@ -15,7 +15,7 @@
             AddRange(items);
         }
 
-        public static PagedList<T> ToPagedList(IEnumerable<T> source,int pageNumber,int pageSize)
+        public static PagedList<T> ToPagedList(IOrderedQueryable<T> source,int pageNumber,int pageSize)
         {
             var count = source.Count();
             var items = source
@@ -26,4 +26,5 @@
             return new PagedList<T>(items, count, pageNumber, pageSize);
         }
     }
+
 }

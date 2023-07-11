@@ -11,8 +11,6 @@ using StoreApp.Services.Abstract;
 
 using System.Linq.Expressions;
 
-using static System.Reflection.Metadata.BlobBuilder;
-
 namespace StoreApp.Services
 {
     public class BookManager : IBookService
@@ -81,13 +79,12 @@ namespace StoreApp.Services
             await _repositoryManager.SaveAsync();
         }
 
-        public async Task<(IEnumerable<BookDto> books,MetaData metaData)> GetAllAsync(BookParameters bookParameters, bool trackChanges)
+        public (IEnumerable<BookDto> books,MetaData metaData) GetAll(BookParameters bookParameters, bool trackChanges)
         {
-            var books = await _repositoryManager
+            var books = _repositoryManager
                 .BookRepository
                 .GetAll(trackChanges)
-                .OrderBy(b => b.Id)
-                .ToListAsync();
+                .OrderBy(b => b.Id);
 
             var pagedList = PagedList<Book>.ToPagedList(books, bookParameters.PageNumber, bookParameters.PageSize);
 
@@ -96,13 +93,12 @@ namespace StoreApp.Services
             return (bookDto, pagedList.MetaData);
         }
 
-        public async Task<(IEnumerable<BookDto> books, MetaData metaData)> GetAllByConditionAsync(BookParameters bookParameters, Expression<Func<Book, bool>> expression, bool trackChanges = false)
+        public (IEnumerable<BookDto> books, MetaData metaData) GetAllByCondition(BookParameters bookParameters, Expression<Func<Book, bool>> expression, bool trackChanges = false)
         {
-            var books = await _repositoryManager
+            var books = _repositoryManager
                 .BookRepository
                 .GetAllByCondition(expression, trackChanges)
-                .OrderBy(b => b.Id)
-                .ToListAsync();
+                .OrderBy(b => b.Id);
 
             var pagedList = PagedList<Book>.ToPagedList(books, bookParameters.PageNumber, bookParameters.PageSize);
 

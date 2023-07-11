@@ -25,9 +25,9 @@ namespace StoreApp.WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetBooks([FromQuery]BookParameters parameters)
+        public IActionResult GetBooks([FromQuery]BookParameters parameters)
         {
-            var pagedResult = await _serviceManager.BookService.GetAllAsync(parameters);
+            var pagedResult = _serviceManager.BookService.GetAll(parameters);
 
             Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
 
