@@ -1,13 +1,17 @@
 ﻿using AutoMapper;
 
+using Microsoft.EntityFrameworkCore;
+
 using StoreApp.Entities.DTOs;
 using StoreApp.Entities.Enums;
 using StoreApp.Entities.Models;
-using StoreApp.Entities.Models.Exceptions;
+using StoreApp.Entities.Models.RequestFeatures;
 using StoreApp.Repositories.Abstract;
 using StoreApp.Services.Abstract;
 
 using System.Linq.Expressions;
+
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace StoreApp.Services
 {
@@ -30,12 +34,12 @@ namespace StoreApp.Services
 
         public BookDto Create(BookDtoForCreate dto)
         {
-            Book? existedBook = _repositoryManager.BookRepository.GetAllByCondition(x => x.Title.Equals(dto.Title),false).SingleOrDefault();
+            Book? existedBook = _repositoryManager.BookRepository.GetAllByCondition(x => x.Title.Equals(dto.Title), false).SingleOrDefault();
             if (existedBook is not null)
             {
                 string message = $"Book with {dto.Title} title has already added";
 
-                _loggerService.Log(message,LogTypes.Info);
+                _loggerService.Log(message, LogTypes.Info);
                 throw new InvalidOperationException(message);
             }
 
@@ -65,7 +69,7 @@ namespace StoreApp.Services
 
         public void Delete(int id)
         {
-            var foundEntity = _repositoryManager.BookRepository.GetById(id,false);
+            var foundEntity = _repositoryManager.BookRepository.GetById(id, false);
             _repositoryManager.BookRepository.Delete(foundEntity);
             _repositoryManager.Save();
         }
@@ -77,17 +81,37 @@ namespace StoreApp.Services
             await _repositoryManager.SaveAsync();
         }
 
-        public IEnumerable<BookDto> GetAll(bool trackChanges)
+        public async Task<(IEnumerable<BookDto> books,MetaData metaData)> GetAllAsync(BookParameters bookParameters, bool trackChanges)
         {
-            return _mapper.Map<IEnumerable<BookDto>>(_repositoryManager.BookRepository.GetAll(trackChanges));
+            var books = await _repositoryManager
+                .BookRepository
+                .GetAll(trackChanges)
+                .OrderBy(b => b.Id)
+                .ToListAsync();
+
+            var pagedList = PagedList<Book>.ToPagedList(books, bookParameters.PageNumber, bookParameters.PageSize);
+
+            var bookDto = _mapper.Map<IEnumerable<BookDto>>(pagedList);
+
+            return (bookDto, pagedList.MetaData);
         }
 
-        public IQueryable<BookDto> GetAllByCondition(Expression<Func<Book, bool>> expression, bool trackChanges = false)
+        public async Task<(IEnumerable<BookDto> books, MetaData metaData)> GetAllByConditionAsync(BookParameters bookParameters, Expression<Func<Book, bool>> expression, bool trackChanges = false)
         {
-            return _mapper.Map<IQueryable<BookDto>>(_repositoryManager.BookRepository.GetAllByCondition(expression,trackChanges));
+            var books = await _repositoryManager
+                .BookRepository
+                .GetAllByCondition(expression, trackChanges)
+                .OrderBy(b => b.Id)
+                .ToListAsync();
+
+            var pagedList = PagedList<Book>.ToPagedList(books, bookParameters.PageNumber, bookParameters.PageSize);
+
+            var bookDto = _mapper.Map<IEnumerable<BookDto>>(pagedList);
+
+            return (bookDto, pagedList.MetaData);
         }
 
-        public BookDto? GetById(int id,bool trackChanges)
+        public BookDto? GetById(int id, bool trackChanges)
         {
             return _mapper.Map<BookDto>(_repositoryManager.BookRepository.GetById(id, trackChanges));
         }

@@ -30,6 +30,9 @@ builder.Services.RegisterRepository();
 builder.Services.RegisterServices();
 
 builder.Services.ConfigureDbContext(builder.Configuration);
+
+builder.Services.ConfigureCors();
+
 var app = builder.Build();
 
 ILoggerService loggerService = app.Services.GetRequiredService<ILoggerService>();
@@ -48,6 +51,8 @@ if(app.Environment.IsProduction())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 

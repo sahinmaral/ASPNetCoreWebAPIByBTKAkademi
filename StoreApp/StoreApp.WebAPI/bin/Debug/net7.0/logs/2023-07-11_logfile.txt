@@ -220,3 +220,223 @@
    at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
    at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
    at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|8_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2023-07-11 06:02:55.1848 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T03:02:55.156852Z"}
+2023-07-11 06:11:39.2747 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T03:11:39.2558274Z"}
+2023-07-11 06:11:40.3961 ERROR Something went wrong : Microsoft.Data.SqlClient.SqlException (0x80131904): The offset specified in a OFFSET clause may not be negative.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at StoreApp.Services.BookManager.GetAllAsync(BookParameters bookParameters, Boolean trackChanges) in C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\BookManager.cs:line 85
+   at StoreApp.WebAPI.Controllers.BooksController.GetBooks(BookParameters parameters) in C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Presentation\Controllers\BooksController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|8_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+ClientConnectionId:16440a0b-81e5-43f2-82df-eefcf10164f9
+Error Number:10742,State:1,Class:15
+2023-07-11 06:11:46.5449 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T03:11:46.5448289Z"}
+2023-07-11 06:11:46.6463 ERROR Something went wrong : Microsoft.Data.SqlClient.SqlException (0x80131904): The offset specified in a OFFSET clause may not be negative.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at StoreApp.Services.BookManager.GetAllAsync(BookParameters bookParameters, Boolean trackChanges) in C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\BookManager.cs:line 85
+   at StoreApp.WebAPI.Controllers.BooksController.GetBooks(BookParameters parameters) in C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Presentation\Controllers\BooksController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|8_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+ClientConnectionId:16440a0b-81e5-43f2-82df-eefcf10164f9
+Error Number:10742,State:1,Class:15
+2023-07-11 06:14:01.8126 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T03:14:01.796357Z"}
+2023-07-11 06:14:02.9122 ERROR Something went wrong : Microsoft.Data.SqlClient.SqlException (0x80131904): The offset specified in a OFFSET clause may not be negative.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at StoreApp.Services.BookManager.GetAllAsync(BookParameters bookParameters, Boolean trackChanges) in C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Services\BookManager.cs:line 84
+   at StoreApp.WebAPI.Controllers.BooksController.GetBooks(BookParameters parameters) in C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.Presentation\Controllers\BooksController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|8_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+ClientConnectionId:57382e02-204b-40d5-85bc-0ecefdf18948
+Error Number:10742,State:1,Class:15
+2023-07-11 06:14:09.2835 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T03:14:09.2834776Z"}
+2023-07-11 06:14:14.9551 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T03:14:14.9550876Z"}
+2023-07-11 06:14:19.5967 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T03:14:19.5966748Z"}
+2023-07-11 06:14:22.6253 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T03:14:22.6252339Z"}
+2023-07-11 06:14:24.1551 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T03:14:24.1550796Z"}
+2023-07-11 06:14:25.4871 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T03:14:25.4870618Z"}
+2023-07-11 07:07:40.9560 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:07:40.9397531Z"}
+2023-07-11 07:07:46.2987 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:07:46.2985269Z"}
+2023-07-11 07:07:48.3466 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:07:48.346505Z"}
+2023-07-11 07:07:51.0847 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:07:51.0846697Z"}
+2023-07-11 07:07:53.0380 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:07:53.0379745Z"}
+2023-07-11 07:07:56.0999 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:07:56.0999368Z"}
+2023-07-11 07:08:08.6548 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:08:08.6548377Z"}
+2023-07-11 07:08:11.1623 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:08:11.1623045Z"}
+2023-07-11 07:08:43.0947 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:08:43.0947245Z"}
+2023-07-11 07:09:13.4349 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:09:13.4348799Z"}
+2023-07-11 07:09:14.0056 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:09:14.0056292Z"}
+2023-07-11 07:09:14.4423 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:09:14.4423229Z"}
+2023-07-11 07:09:23.8431 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:09:23.8431344Z"}
+2023-07-11 07:22:12.8688 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:22:12.8595506Z"}
+2023-07-11 07:25:30.7254 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:30.7253286Z"}
+2023-07-11 07:25:31.0164 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.0164392Z"}
+2023-07-11 07:25:31.1067 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.1067299Z"}
+2023-07-11 07:25:31.2177 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.2176671Z"}
+2023-07-11 07:25:31.2664 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.2663939Z"}
+2023-07-11 07:25:31.3439 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.3438963Z"}
+2023-07-11 07:25:31.4370 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.4370406Z"}
+2023-07-11 07:25:31.4999 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.4999478Z"}
+2023-07-11 07:25:31.5790 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.5790395Z"}
+2023-07-11 07:25:31.6554 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.6554229Z"}
+2023-07-11 07:25:31.7505 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.7505489Z"}
+2023-07-11 07:25:31.8285 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.8284779Z"}
+2023-07-11 07:25:31.8774 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.8773826Z"}
+2023-07-11 07:25:31.9400 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.9400163Z"}
+2023-07-11 07:25:31.9889 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:31.9889476Z"}
+2023-07-11 07:25:32.0683 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.0682849Z"}
+2023-07-11 07:25:32.1356 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.1356421Z"}
+2023-07-11 07:25:32.2122 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.2122202Z"}
+2023-07-11 07:25:32.2742 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.2741917Z"}
+2023-07-11 07:25:32.3521 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.3521481Z"}
+2023-07-11 07:25:32.4155 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.4155325Z"}
+2023-07-11 07:25:32.4918 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.4918151Z"}
+2023-07-11 07:25:32.5698 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.5698643Z"}
+2023-07-11 07:25:32.6624 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.6624485Z"}
+2023-07-11 07:25:32.7236 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.7236024Z"}
+2023-07-11 07:25:32.8052 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.8052438Z"}
+2023-07-11 07:25:32.8814 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.8813782Z"}
+2023-07-11 07:25:32.9624 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:32.9624469Z"}
+2023-07-11 07:25:33.0402 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.0401793Z"}
+2023-07-11 07:25:33.1359 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.1359434Z"}
+2023-07-11 07:25:33.2276 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.2276432Z"}
+2023-07-11 07:25:33.3236 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.323674Z"}
+2023-07-11 07:25:33.4045 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.4044832Z"}
+2023-07-11 07:25:33.4834 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.4834649Z"}
+2023-07-11 07:25:33.5784 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.5784567Z"}
+2023-07-11 07:25:33.6434 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.6434865Z"}
+2023-07-11 07:25:33.7066 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.7066569Z"}
+2023-07-11 07:25:33.7700 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.7700272Z"}
+2023-07-11 07:25:33.8488 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.848881Z"}
+2023-07-11 07:25:33.9281 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.9281713Z"}
+2023-07-11 07:25:33.9446 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.9446434Z"}
+2023-07-11 07:25:33.9689 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:33.9689081Z"}
+2023-07-11 07:25:34.0543 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.054311Z"}
+2023-07-11 07:25:34.1339 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.1339617Z"}
+2023-07-11 07:25:34.2122 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.2122777Z"}
+2023-07-11 07:25:34.2897 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.2897408Z"}
+2023-07-11 07:25:34.3709 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.3709055Z"}
+2023-07-11 07:25:34.4346 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.434602Z"}
+2023-07-11 07:25:34.5146 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.5146069Z"}
+2023-07-11 07:25:34.5940 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.5940425Z"}
+2023-07-11 07:25:34.6725 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.6725842Z"}
+2023-07-11 07:25:34.7527 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.7526919Z"}
+2023-07-11 07:25:34.8165 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.8165331Z"}
+2023-07-11 07:25:34.8801 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.880123Z"}
+2023-07-11 07:25:34.9604 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:34.960476Z"}
+2023-07-11 07:25:35.0387 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.0387865Z"}
+2023-07-11 07:25:35.1183 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.1183546Z"}
+2023-07-11 07:25:35.2141 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.2141485Z"}
+2023-07-11 07:25:35.3090 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.3090798Z"}
+2023-07-11 07:25:35.3867 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.3867862Z"}
+2023-07-11 07:25:35.4649 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.4649703Z"}
+2023-07-11 07:25:35.5599 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.5598958Z"}
+2023-07-11 07:25:35.6537 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.6537236Z"}
+2023-07-11 07:25:35.7186 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.7186802Z"}
+2023-07-11 07:25:35.8143 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.8143862Z"}
+2023-07-11 07:25:35.8939 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.8939596Z"}
+2023-07-11 07:25:35.9894 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:35.9894116Z"}
+2023-07-11 07:25:36.0846 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.0846234Z"}
+2023-07-11 07:25:36.1646 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.1646303Z"}
+2023-07-11 07:25:36.2441 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.2440992Z"}
+2023-07-11 07:25:36.3217 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.3217087Z"}
+2023-07-11 07:25:36.4181 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.4181227Z"}
+2023-07-11 07:25:36.4960 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.4960235Z"}
+2023-07-11 07:25:36.5759 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.5759194Z"}
+2023-07-11 07:25:36.6540 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.6540678Z"}
+2023-07-11 07:25:36.7302 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.7302269Z"}
+2023-07-11 07:25:36.7623 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.7623373Z"}
+2023-07-11 07:25:36.8397 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.8396959Z"}
+2023-07-11 07:25:36.9177 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:36.9177492Z"}
+2023-07-11 07:25:37.0119 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.011946Z"}
+2023-07-11 07:25:37.1057 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.1057191Z"}
+2023-07-11 07:25:37.1845 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.184535Z"}
+2023-07-11 07:25:37.2614 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.2614229Z"}
+2023-07-11 07:25:37.3396 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.3396536Z"}
+2023-07-11 07:25:37.4202 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.4202701Z"}
+2023-07-11 07:25:37.4997 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.4997705Z"}
+2023-07-11 07:25:37.5955 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.5955246Z"}
+2023-07-11 07:25:37.6739 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.6739157Z"}
+2023-07-11 07:25:37.7363 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.7363828Z"}
+2023-07-11 07:25:37.8002 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.8002713Z"}
+2023-07-11 07:25:37.8939 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.8939137Z"}
+2023-07-11 07:25:37.9585 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:37.9585165Z"}
+2023-07-11 07:25:38.0379 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:38.0379092Z"}
+2023-07-11 07:25:38.1325 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:38.132524Z"}
+2023-07-11 07:25:38.2128 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:38.2128622Z"}
+2023-07-11 07:25:38.2734 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:38.273441Z"}
+2023-07-11 07:25:38.3512 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:38.3512333Z"}
+2023-07-11 07:25:38.4484 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:38.4484538Z"}
+2023-07-11 07:25:38.5439 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:38.5439602Z"}
+2023-07-11 07:25:38.6393 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"InsertBook","Id":null,"CreatedAt":"2023-07-11T04:25:38.639314Z"}
+2023-07-11 07:25:44.7298 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:25:44.7297979Z"}
+2023-07-11 07:26:25.9464 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:26:25.94648Z"}
+2023-07-11 07:26:33.1733 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-11T04:26:33.1732974Z"}

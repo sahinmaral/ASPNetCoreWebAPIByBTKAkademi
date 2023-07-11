@@ -2,10 +2,14 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
+
 using StoreApp.Entities.DTOs;
 using StoreApp.Entities.Models;
+using StoreApp.Entities.Models.RequestFeatures;
 using StoreApp.Presentation.ActionFilters;
 using StoreApp.Services.Abstract;
+
+using System.Text.Json;
 
 namespace StoreApp.WebAPI.Controllers
 {
@@ -21,9 +25,13 @@ namespace StoreApp.WebAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetBooks()
+        public async Task<IActionResult> GetBooks([FromQuery]BookParameters parameters)
         {
-            return Ok(_serviceManager.BookService.GetAll());
+            var pagedResult = await _serviceManager.BookService.GetAllAsync(parameters);
+
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
+
+            return Ok(pagedResult.books);
         }
 
         [HttpGet("{id}")]
