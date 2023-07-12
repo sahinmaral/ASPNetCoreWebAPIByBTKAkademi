@@ -11,6 +11,7 @@ using StoreApp.Repositories.Abstract;
 using StoreApp.Repositories.EFCore.Extensions;
 using StoreApp.Services.Abstract;
 
+using System.Dynamic;
 using System.Linq.Expressions;
 
 namespace StoreApp.Services
@@ -20,11 +21,13 @@ namespace StoreApp.Services
         private readonly IRepositoryManager _repositoryManager;
         private readonly ILoggerService _loggerService;
         private readonly IMapper _mapper;
-        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService, IMapper mapper)
+        private readonly IDataShaper<BookDto> _dataShaper;
+        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService, IMapper mapper, IDataShaper<BookDto> dataShaper)
         {
             _repositoryManager = repositoryManager;
             _loggerService = loggerService;
             _mapper = mapper;
+            _dataShaper = dataShaper;
         }
 
         public async Task<bool> AnyAsync(Expression<Func<Book, bool>> expression)
@@ -81,7 +84,7 @@ namespace StoreApp.Services
             await _repositoryManager.SaveAsync();
         }
 
-        public (IEnumerable<BookDto> books,MetaData metaData) GetAll(BookParameters bookParameters, bool trackChanges)
+        public (IEnumerable<ExpandoObject> books,MetaData metaData) GetAll(BookParameters bookParameters, bool trackChanges)
         {
             var books = _repositoryManager
                 .BookRepository
@@ -94,7 +97,9 @@ namespace StoreApp.Services
 
             var bookDto = _mapper.Map<IEnumerable<BookDto>>(pagedList);
 
-            return (bookDto, pagedList.MetaData);
+            var shapedData = _dataShaper.ShapeData(bookDto, bookParameters.Fields);
+
+            return (shapedData, pagedList.MetaData);
         }
 
         public BookDto? GetById(int id, bool trackChanges)

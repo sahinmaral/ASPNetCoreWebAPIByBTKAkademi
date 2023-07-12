@@ -9,6 +9,7 @@ using StoreApp.Services.Abstract;
 
 using System.ComponentModel.Design;
 using StoreApp.Presentation.ActionFilters;
+using StoreApp.Entities.DTOs;
 
 namespace StoreApp.WebAPI.Extensions
 {
@@ -30,6 +31,7 @@ namespace StoreApp.WebAPI.Extensions
         public static void RegisterServices(this IServiceCollection services)
         {
             services.AddScoped<IServiceManager, ServiceManager>();
+            services.AddScoped<IDataShaper<BookDto>, DataShaper<BookDto>>();
         }
 
         public static void ConfigureLogging(this IServiceCollection services)

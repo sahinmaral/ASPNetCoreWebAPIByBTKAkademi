@@ -256,3 +256,6 @@
 2023-07-12 11:35:53.5894 Info Message Template Auto Format enabled
 2023-07-12 11:35:53.6846 Info Registered target NLog.Targets.FileTarget(Name=file)
 2023-07-12 11:35:53.7061 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-12 13:07:02.7159 Info Message Template Auto Format enabled
+2023-07-12 13:07:02.8189 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-12 13:07:02.8480 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config

@@ -251,3 +251,5 @@
 2023-07-12 11:30:10.7030 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-12T08:30:10.7030395Z"}
 2023-07-12 11:30:58.6088 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-12T08:30:58.6087906Z"}
 2023-07-12 11:35:58.5249 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-12T08:35:58.5093691Z"}
+2023-07-12 13:07:21.6260 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-12T10:07:21.6108638Z"}
+2023-07-12 13:07:31.5326 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-12T10:07:31.532555Z"}

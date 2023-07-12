@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StoreApp.Entities.Models.RequestFeatures
+﻿namespace StoreApp.Entities.Models.RequestFeatures
 {
-    public abstract class RequestParameters
+	public abstract class RequestParameters
     {
 		const int MAX_PAGE_SIZE = 50;
         public int PageNumber { get; set; }
@@ -19,5 +13,6 @@ namespace StoreApp.Entities.Models.RequestFeatures
 		}
 
         public string? OrderBy { get; set; }
-    }
+		public string? Fields { get; set; }
+	}
 }
