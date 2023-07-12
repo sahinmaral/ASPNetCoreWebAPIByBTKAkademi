@@ -13,7 +13,6 @@ namespace StoreApp.Services.Abstract
         Task<BookDtoForUpdate> GetByIdForPatchAsync(int id, bool trackChanges = false);
         void Delete(int id);
         Task DeleteAsync(int id);
-        (IEnumerable<BookDto> books, MetaData metaData) GetAllByCondition(BookParameters bookParameters,Expression<Func<Book, bool>> expression, bool trackChanges = false);
         (IEnumerable<BookDto> books, MetaData metaData) GetAll(BookParameters bookParameters, bool trackChanges = false);
         BookDto Create(BookDtoForCreate dto);
         Task<BookDto> CreateAsync(BookDtoForCreate dto);

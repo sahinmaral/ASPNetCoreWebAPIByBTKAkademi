@@ -218,3 +218,35 @@
 2023-07-11 07:52:15.4424 Info Message Template Auto Format enabled
 2023-07-11 07:52:15.5227 Info Registered target NLog.Targets.FileTarget(Name=file)
 2023-07-11 07:52:15.5476 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-12 08:23:58.2761 Info Message Template Auto Format enabled
+2023-07-12 08:23:58.3437 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-12 08:23:58.3600 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-12 08:25:11.3162 Info Message Template Auto Format enabled
+2023-07-12 08:25:11.3802 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-12 08:25:11.3994 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-12 08:26:43.5452 Info Message Template Auto Format enabled
+2023-07-12 08:26:43.6185 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-12 08:26:43.6452 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-12 08:28:07.1223 Info Message Template Auto Format enabled
+2023-07-12 08:28:07.1848 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-12 08:28:07.2100 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-12 08:29:19.8457 Info Message Template Auto Format enabled
+2023-07-12 08:29:19.9016 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-12 08:29:19.9016 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-12 08:29:56.2988 Info Message Template Auto Format enabled
+2023-07-12 08:29:56.3549 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-12 08:29:56.3716 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-12 08:31:28.5661 Info Message Template Auto Format enabled
+2023-07-12 08:31:28.6083 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-12 08:31:28.6205 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-12 08:32:55.7648 Info AppDomain Shutting down. LogFactory closing...
+2023-07-12 08:32:55.7648 Info LogFactory has been closed.
+2023-07-12 08:34:27.1846 Info Message Template Auto Format enabled
+2023-07-12 08:34:27.3081 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-12 08:34:27.3298 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-12 08:44:03.5295 Info Message Template Auto Format enabled
+2023-07-12 08:44:03.5963 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-12 08:44:03.6140 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-12 10:08:50.6441 Info Message Template Auto Format enabled
+2023-07-12 10:08:50.7667 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-12 10:08:50.7882 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config

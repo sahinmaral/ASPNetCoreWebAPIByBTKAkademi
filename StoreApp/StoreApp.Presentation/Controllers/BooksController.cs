@@ -25,6 +25,7 @@ namespace StoreApp.WebAPI.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(PriceOutOfRangeCheckAttribute))]
         public IActionResult GetBooks([FromQuery]BookParameters parameters)
         {
             var pagedResult = _serviceManager.BookService.GetAll(parameters);

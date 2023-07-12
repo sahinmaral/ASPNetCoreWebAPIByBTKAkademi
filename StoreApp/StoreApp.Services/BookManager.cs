@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using StoreApp.Entities.DTOs;
 using StoreApp.Entities.Enums;
 using StoreApp.Entities.Models;
+using StoreApp.Entities.Models.Exceptions;
 using StoreApp.Entities.Models.RequestFeatures;
 using StoreApp.Repositories.Abstract;
+using StoreApp.Repositories.EFCore.Extensions;
 using StoreApp.Services.Abstract;
 
 using System.Linq.Expressions;
@@ -84,20 +86,8 @@ namespace StoreApp.Services
             var books = _repositoryManager
                 .BookRepository
                 .GetAll(trackChanges)
-                .OrderBy(b => b.Id);
-
-            var pagedList = PagedList<Book>.ToPagedList(books, bookParameters.PageNumber, bookParameters.PageSize);
-
-            var bookDto = _mapper.Map<IEnumerable<BookDto>>(pagedList);
-
-            return (bookDto, pagedList.MetaData);
-        }
-
-        public (IEnumerable<BookDto> books, MetaData metaData) GetAllByCondition(BookParameters bookParameters, Expression<Func<Book, bool>> expression, bool trackChanges = false)
-        {
-            var books = _repositoryManager
-                .BookRepository
-                .GetAllByCondition(expression, trackChanges)
+                .FilterBooksByPrice(bookParameters.MinPrice,bookParameters.MaxPrice)
+                .SearchByTitle(bookParameters.SearchTerm)
                 .OrderBy(b => b.Id);
 
             var pagedList = PagedList<Book>.ToPagedList(books, bookParameters.PageNumber, bookParameters.PageSize);

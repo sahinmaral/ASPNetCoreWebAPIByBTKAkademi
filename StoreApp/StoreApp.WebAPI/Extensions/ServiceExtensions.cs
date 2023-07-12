@@ -58,6 +58,7 @@ namespace StoreApp.WebAPI.Extensions
             services.AddScoped<ValidationFilterAttribute>();
             services.AddSingleton<LogFilterAttribute>();
             services.AddScoped(typeof(NotFoundFilterAttribute<>));
+            services.AddScoped(typeof(PriceOutOfRangeCheckAttribute));
         }
 
         public static void ConfigureCors(this IServiceCollection services)
