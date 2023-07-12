@@ -86,9 +86,9 @@ namespace StoreApp.Services
             var books = _repositoryManager
                 .BookRepository
                 .GetAll(trackChanges)
-                .FilterBooksByPrice(bookParameters.MinPrice,bookParameters.MaxPrice)
+                .FilterBooksByPrice(bookParameters.MinPrice, bookParameters.MaxPrice)
                 .SearchByTitle(bookParameters.SearchTerm)
-                .OrderBy(b => b.Id);
+                .Sort(bookParameters.OrderBy);
 
             var pagedList = PagedList<Book>.ToPagedList(books, bookParameters.PageNumber, bookParameters.PageSize);
 

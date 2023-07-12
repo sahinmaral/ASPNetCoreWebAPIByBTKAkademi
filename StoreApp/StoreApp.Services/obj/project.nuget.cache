@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fUWJC7l8jeRcFroAl9tPPQcSQVDs5LaAL0V/V4P278u4wkhyEndJF/wLMFextpcLWQSA6ip2l8E3qMlEm6jr5w==",
+  "dgSpecHash": "Z0FfeXRUOKD3QtLFtRX/I+6FKCAD2m6qHlhRLl8uU+AjBZBB3IqklT0kcyCwFEifu3EHWxSuJLuHmYbz5fGsHg==",
   "success": true,
   "projectFilePath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\StoreApp\\StoreApp.Services\\StoreApp.Services.csproj",
   "expectedPackageFiles": [
@@ -20,7 +20,8 @@
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\nlog\\5.2.2\\nlog.5.2.2.nupkg.sha512",
-    "C:\\Users\\sahin\\.nuget\\packages\\nlog.extensions.logging\\5.3.2\\nlog.extensions.logging.5.3.2.nupkg.sha512"
+    "C:\\Users\\sahin\\.nuget\\packages\\nlog.extensions.logging\\5.3.2\\nlog.extensions.logging.5.3.2.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\system.linq.dynamic.core\\1.3.3\\system.linq.dynamic.core.1.3.3.nupkg.sha512"
   ],
   "logs": []
 }
