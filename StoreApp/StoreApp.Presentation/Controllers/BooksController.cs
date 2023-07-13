@@ -24,10 +24,11 @@ namespace StoreApp.WebAPI.Controllers
             _serviceManager = serviceManager;
         }
 
-        [HttpGet]
+        [HttpHead]
+        [HttpGet(Name = nameof(GetBooks))]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         [ServiceFilter(typeof(PriceOutOfRangeCheckAttribute))]
-        public IActionResult GetBooks([FromQuery]BookParameters parameters)
+        public IActionResult GetBooks([FromQuery] BookParameters parameters)
         {
             var linkParameters = new LinkParameters()
             {
@@ -39,8 +40,8 @@ namespace StoreApp.WebAPI.Controllers
 
             Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(result.metaData));
 
-            return result.linkResponse.HasLinks ? 
-                Ok(result.linkResponse.LinkedEntities) : 
+            return result.linkResponse.HasLinks ?
+                Ok(result.linkResponse.LinkedEntities) :
                 Ok(result.linkResponse.ShapedEntities);
         }
 
@@ -54,13 +55,13 @@ namespace StoreApp.WebAPI.Controllers
             return Ok(foundProduct);
         }
 
-        [HttpPost]
+        [HttpPost(Name = nameof(InsertBook))]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> InsertBook([FromBody] BookDtoForCreate dto)
         {
 
             var book = await _serviceManager.BookService.CreateAsync(dto);
-            return StatusCode(201,book);
+            return StatusCode(201, book);
         }
 
         [HttpPut("{id}")]
@@ -98,7 +99,16 @@ namespace StoreApp.WebAPI.Controllers
 
             await _serviceManager.BookService.UpdateAsync(id, dto);
 
-            return NoContent(); 
+            return NoContent();
+        }
+
+        [HttpOptions]
+        public IActionResult GetBooksOptions()
+        {
+            Response.Headers.Add("Access-Control-Allow-Methods", new[] { "GET, POST, PUT, DELETE, OPTIONS, DELETE, PATCH, HEAD" });
+            Response.Headers.Add("Access-Control-Allow-Origin", new[] { (string)Request.Headers["Origin"] });
+            Response.Headers.Add("Access-Control-Allow-Headers", new[] { "Origin, X-Requested-With, Content-Type, Accept, X-Pagination" });
+            return Ok();
         }
     }
 }

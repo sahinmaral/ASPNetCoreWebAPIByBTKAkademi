@@ -90,6 +90,9 @@ namespace StoreApp.WebAPI.Extensions
                 {
                     systemTextJsonOutputFormatter.SupportedMediaTypes
                     .Add("application/vnd.storeapp.hateoas+json");
+
+                    systemTextJsonOutputFormatter.SupportedMediaTypes
+                    .Add("application/vnd.storeapp.apiroot+json");
                 }
 
                 var xmlOutputFormatter = config
@@ -101,6 +104,9 @@ namespace StoreApp.WebAPI.Extensions
                 {
                     xmlOutputFormatter.SupportedMediaTypes
                     .Add("application/vnd.storeapp.hateoas+xml");
+
+                    xmlOutputFormatter.SupportedMediaTypes
+                    .Add("application/vnd.storeapp.apiroot+xml");
                 }
 
             });
