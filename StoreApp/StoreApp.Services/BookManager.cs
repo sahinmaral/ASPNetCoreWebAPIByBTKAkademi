@@ -1,17 +1,14 @@
 ﻿using AutoMapper;
 
-using Microsoft.EntityFrameworkCore;
-
 using StoreApp.Entities.DTOs;
 using StoreApp.Entities.Enums;
 using StoreApp.Entities.Models;
-using StoreApp.Entities.Models.Exceptions;
+using StoreApp.Entities.Models.LinkModels;
 using StoreApp.Entities.Models.RequestFeatures;
 using StoreApp.Repositories.Abstract;
 using StoreApp.Repositories.EFCore.Extensions;
 using StoreApp.Services.Abstract;
 
-using System.Dynamic;
 using System.Linq.Expressions;
 
 namespace StoreApp.Services
@@ -21,13 +18,13 @@ namespace StoreApp.Services
         private readonly IRepositoryManager _repositoryManager;
         private readonly ILoggerService _loggerService;
         private readonly IMapper _mapper;
-        private readonly IDataShaper<BookDto> _dataShaper;
-        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService, IMapper mapper, IDataShaper<BookDto> dataShaper)
+        private readonly IBookLinks _bookLinks;
+        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService, IMapper mapper, IBookLinks bookLinks)
         {
             _repositoryManager = repositoryManager;
             _loggerService = loggerService;
             _mapper = mapper;
-            _dataShaper = dataShaper;
+            _bookLinks = bookLinks;
         }
 
         public async Task<bool> AnyAsync(Expression<Func<Book, bool>> expression)
@@ -84,22 +81,22 @@ namespace StoreApp.Services
             await _repositoryManager.SaveAsync();
         }
 
-        public (IEnumerable<ExpandoObject> books,MetaData metaData) GetAll(BookParameters bookParameters, bool trackChanges)
+        public (LinkResponse linkResponse,MetaData metaData) GetAll(LinkParameters linkParameters, bool trackChanges)
         {
             var books = _repositoryManager
                 .BookRepository
                 .GetAll(trackChanges)
-                .FilterBooksByPrice(bookParameters.MinPrice, bookParameters.MaxPrice)
-                .SearchByTitle(bookParameters.SearchTerm)
-                .Sort(bookParameters.OrderBy);
+                .FilterBooksByPrice(linkParameters.BookParameters.MinPrice, linkParameters.BookParameters.MaxPrice)
+                .SearchByTitle(linkParameters.BookParameters.SearchTerm)
+                .Sort(linkParameters.BookParameters.OrderBy);
 
-            var pagedList = PagedList<Book>.ToPagedList(books, bookParameters.PageNumber, bookParameters.PageSize);
+            var pagedList = PagedList<Book>.ToPagedList(books, linkParameters.BookParameters.PageNumber, linkParameters.BookParameters.PageSize);
 
-            var bookDto = _mapper.Map<IEnumerable<BookDto>>(pagedList);
+            var bookDtos = _mapper.Map<IEnumerable<BookDto>>(pagedList);
 
-            var shapedData = _dataShaper.ShapeData(bookDto, bookParameters.Fields);
+            var links = _bookLinks.TryGenerateLinks(bookDtos, linkParameters.BookParameters.Fields, linkParameters.HttpContext);
 
-            return (shapedData, pagedList.MetaData);
+            return (linkResponse : links, metaData : pagedList.MetaData);
         }
 
         public BookDto? GetById(int id, bool trackChanges)

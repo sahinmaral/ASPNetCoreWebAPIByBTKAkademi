@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 
-using StoreApp.Entities.DTOs;
 using StoreApp.Repositories.Abstract;
 using StoreApp.Services.Abstract;
 
@@ -14,10 +13,10 @@ namespace StoreApp.Services
             IRepositoryManager repositoryManager,
             ILoggerService loggerService,
             IMapper mapper,
-            IDataShaper<BookDto> bookDataShaper
+            IBookLinks bookLinks
             )
         {
-            _bookService = new Lazy<IBookService>(() => new BookManager(repositoryManager,loggerService,mapper, bookDataShaper));
+            _bookService = new Lazy<IBookService>(() => new BookManager(repositoryManager, loggerService, mapper,bookLinks));
         }
     }
 }

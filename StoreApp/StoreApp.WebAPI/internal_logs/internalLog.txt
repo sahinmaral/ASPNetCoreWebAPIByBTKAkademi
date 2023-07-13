@@ -259,3 +259,18 @@
 2023-07-12 13:07:02.7159 Info Message Template Auto Format enabled
 2023-07-12 13:07:02.8189 Info Registered target NLog.Targets.FileTarget(Name=file)
 2023-07-12 13:07:02.8480 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-13 13:09:20.3939 Info Message Template Auto Format enabled
+2023-07-13 13:09:20.4806 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-13 13:09:20.4955 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-13 13:17:02.2799 Info Message Template Auto Format enabled
+2023-07-13 13:17:02.3941 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-13 13:17:02.4133 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-13 13:17:22.6461 Info Message Template Auto Format enabled
+2023-07-13 13:17:22.7051 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-13 13:17:22.7189 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-13 13:58:48.2261 Info Message Template Auto Format enabled
+2023-07-13 13:58:48.3473 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-13 13:58:48.3898 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config
+2023-07-13 14:08:23.6758 Info Message Template Auto Format enabled
+2023-07-13 14:08:23.7751 Info Registered target NLog.Targets.FileTarget(Name=file)
+2023-07-13 14:08:23.7965 Info Validating config: TargetNames=file, ConfigItems=12, FilePath=C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\nlog.config

@@ -10,6 +10,8 @@ using StoreApp.Services.Abstract;
 using System.ComponentModel.Design;
 using StoreApp.Presentation.ActionFilters;
 using StoreApp.Entities.DTOs;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace StoreApp.WebAPI.Extensions
 {
@@ -32,6 +34,7 @@ namespace StoreApp.WebAPI.Extensions
         {
             services.AddScoped<IServiceManager, ServiceManager>();
             services.AddScoped<IDataShaper<BookDto>, DataShaper<BookDto>>();
+            services.AddScoped<IBookLinks, BookLinks>();
         }
 
         public static void ConfigureLogging(this IServiceCollection services)
@@ -47,20 +50,21 @@ namespace StoreApp.WebAPI.Extensions
                 config.RespectBrowserAcceptHeader = true;
                 config.ReturnHttpNotAcceptable = true;
             })
-                .AddCustomCSVFormatter()
                 .AddXmlDataContractSerializerFormatters()
-                .AddApplicationPart(typeof(AssemblyReference).Assembly)
-                .AddNewtonsoftJson(opt =>
-                    opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-                );
+                .AddCustomCSVFormatter()
+                .AddApplicationPart(typeof(AssemblyReference).Assembly);
+                //.AddNewtonsoftJson(opt =>
+                //    opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                //);
         }
 
         public static void ConfigureActionFilters(this IServiceCollection services)
         {
-            services.AddScoped<ValidationFilterAttribute>();
-            services.AddSingleton<LogFilterAttribute>();
+            services.AddScoped(typeof(ValidationFilterAttribute));
+            services.AddSingleton(typeof(LogFilterAttribute));
             services.AddScoped(typeof(NotFoundFilterAttribute<>));
             services.AddScoped(typeof(PriceOutOfRangeCheckAttribute));
+            services.AddScoped(typeof(ValidateMediaTypeAttribute));
         }
 
         public static void ConfigureCors(this IServiceCollection services)
@@ -71,6 +75,34 @@ namespace StoreApp.WebAPI.Extensions
                 {
                     builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().WithExposedHeaders("X-Pagination");
                 });
+            });
+        }
+
+        public static void AddCustomMediaTypes(this IServiceCollection services)
+        {
+            services.Configure<MvcOptions>(config =>
+            {
+                var systemTextJsonOutputFormatter = config
+                .OutputFormatters
+                .OfType<SystemTextJsonOutputFormatter>()?.FirstOrDefault();
+
+                if(systemTextJsonOutputFormatter is not null)
+                {
+                    systemTextJsonOutputFormatter.SupportedMediaTypes
+                    .Add("application/vnd.storeapp.hateoas+json");
+                }
+
+                var xmlOutputFormatter = config
+                .OutputFormatters
+                .OfType<XmlDataContractSerializerOutputFormatter>()?
+                .FirstOrDefault();
+
+                if (xmlOutputFormatter is not null)
+                {
+                    xmlOutputFormatter.SupportedMediaTypes
+                    .Add("application/vnd.storeapp.hateoas+xml");
+                }
+
             });
         }
     }

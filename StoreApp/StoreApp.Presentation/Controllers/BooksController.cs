@@ -25,14 +25,23 @@ namespace StoreApp.WebAPI.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         [ServiceFilter(typeof(PriceOutOfRangeCheckAttribute))]
         public IActionResult GetBooks([FromQuery]BookParameters parameters)
         {
-            var pagedResult = _serviceManager.BookService.GetAll(parameters);
+            var linkParameters = new LinkParameters()
+            {
+                BookParameters = parameters,
+                HttpContext = HttpContext
+            };
 
-            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
+            var result = _serviceManager.BookService.GetAll(linkParameters);
 
-            return Ok(pagedResult.books);
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(result.metaData));
+
+            return result.linkResponse.HasLinks ? 
+                Ok(result.linkResponse.LinkedEntities) : 
+                Ok(result.linkResponse.ShapedEntities);
         }
 
         [HttpGet("{id}")]

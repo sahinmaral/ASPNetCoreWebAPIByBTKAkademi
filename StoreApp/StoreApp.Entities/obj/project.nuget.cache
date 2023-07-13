@@ -1,8 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "ifupjeQ0CqoCgT9EVtHfquA5/ViCx8gfroeTN51PjpZMK+Cg7JLfp5EtYAfsOguK3+f0rPZYGSFkhEpFze8HKQ==",
+  "dgSpecHash": "o8fJmWh2ePJ3eFGdA14dlWuzUci68UW+pWGbMRx3pTlHgSjhIj0SzUhtrFanrY8FFtV2BOZ8fK9mZ/gFjmyH8Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\StoreApp\\StoreApp.Entities\\StoreApp.Entities.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\2.2.0\\microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

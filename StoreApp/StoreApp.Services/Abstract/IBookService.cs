@@ -1,8 +1,7 @@
 ﻿using StoreApp.Entities.DTOs;
 using StoreApp.Entities.Models;
+using StoreApp.Entities.Models.LinkModels;
 using StoreApp.Entities.Models.RequestFeatures;
-
-using System.Dynamic;
 
 namespace StoreApp.Services.Abstract
 {
@@ -13,7 +12,7 @@ namespace StoreApp.Services.Abstract
         Task<BookDtoForUpdate> GetByIdForPatchAsync(int id, bool trackChanges = false);
         void Delete(int id);
         Task DeleteAsync(int id);
-        (IEnumerable<ExpandoObject> books, MetaData metaData) GetAll(BookParameters bookParameters, bool trackChanges = false);
+        (LinkResponse linkResponse, MetaData metaData) GetAll(LinkParameters linkParameters, bool trackChanges = false);
         BookDto Create(BookDtoForCreate dto);
         Task<BookDto> CreateAsync(BookDtoForCreate dto);
         void Update(int id, BookDtoForUpdate dto);

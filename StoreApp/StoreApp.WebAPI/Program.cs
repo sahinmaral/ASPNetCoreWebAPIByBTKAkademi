@@ -33,6 +33,8 @@ builder.Services.ConfigureDbContext(builder.Configuration);
 
 builder.Services.ConfigureCors();
 
+builder.Services.AddCustomMediaTypes();
+
 var app = builder.Build();
 
 ILoggerService loggerService = app.Services.GetRequiredService<ILoggerService>();
