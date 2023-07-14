@@ -78,3 +78,30 @@
    at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
    at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
    at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|8_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2023-07-14 11:43:08.6554 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooksOptions","Id":null,"CreatedAt":"2023-07-14T08:43:08.644139Z"}
+2023-07-14 11:43:55.9001 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooksOptions","Id":null,"CreatedAt":"2023-07-14T08:43:55.9000295Z"}
+2023-07-14 12:18:07.4283 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:18:07.4078288Z"}
+2023-07-14 12:18:17.0749 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:18:17.0748369Z"}
+2023-07-14 12:18:17.9686 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:18:17.9686452Z"}
+2023-07-14 12:18:18.8276 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:18:18.8276065Z"}
+2023-07-14 12:18:19.5166 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:18:19.5166054Z"}
+2023-07-14 12:18:20.2480 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:18:20.2480439Z"}
+2023-07-14 12:18:20.9872 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:18:20.9872522Z"}
+2023-07-14 12:18:21.9368 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:18:21.9367767Z"}
+2023-07-14 12:18:50.3786 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:18:50.3786102Z"}
+2023-07-14 12:18:51.8708 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:18:51.8708014Z"}
+2023-07-14 12:18:52.9115 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:18:52.9115232Z"}
+2023-07-14 12:20:49.6559 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:20:49.6385835Z"}
+2023-07-14 12:20:56.4940 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:20:56.4939321Z"}
+2023-07-14 12:20:58.1649 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:20:58.1648416Z"}
+2023-07-14 12:20:59.4964 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:20:59.4964307Z"}
+2023-07-14 12:21:00.5351 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:21:00.5351321Z"}
+2023-07-14 12:21:42.3832 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:21:42.3729468Z"}
+2023-07-14 12:22:44.8850 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:22:44.8849512Z"}
+2023-07-14 12:30:54.4049 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBookById","Id":"3","CreatedAt":"2023-07-14T09:30:54.3948684Z"}
+2023-07-14 12:31:00.5711 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:31:00.5710358Z"}
+2023-07-14 12:31:08.3309 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBookById","Id":"219","CreatedAt":"2023-07-14T09:31:08.3309234Z"}
+2023-07-14 12:37:18.1332 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:37:18.1233624Z"}
+2023-07-14 12:37:59.5672 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:37:59.5567714Z"}
+2023-07-14 12:39:23.0192 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:39:23.0104156Z"}
+2023-07-14 12:41:28.2252 INFO {"ModelName":"OnActionExecuting","Controller":"Books","Action":"GetBooks","Id":null,"CreatedAt":"2023-07-14T09:41:28.2094447Z"}

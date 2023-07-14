@@ -31,6 +31,18 @@
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "Marvin.Cache.Headers/6.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Marvin.Cache.Headers.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Marvin.Cache.Headers.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -1321,6 +1333,21 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "Marvin.Cache.Headers/6.1.0": {
+      "sha512": "XHUeOdMfZrtRHXsWiqRUrebBl4U2SGew8Cr7Y/tHaGfiY/fbajnq4vRt5ktlkUnMebcpfvl8RJjAglu1KxWwYQ==",
+      "type": "package",
+      "path": "marvin.cache.headers/6.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Marvin.Cache.Headers.dll",
+        "lib/net6.0/Marvin.Cache.Headers.dll",
+        "lib/netcoreapp3.1/Marvin.Cache.Headers.dll",
+        "marvin.cache.headers.6.1.0.nupkg.sha512",
+        "marvin.cache.headers.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
@@ -3992,6 +4019,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Marvin.Cache.Headers >= 6.1.0",
       "Microsoft.AspNetCore.JsonPatch >= 7.0.8",
       "Microsoft.AspNetCore.Mvc.Core >= 2.2.5",
       "Microsoft.AspNetCore.Mvc.Versioning >= 5.1.0",
@@ -4047,6 +4075,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "Marvin.Cache.Headers": {
+            "target": "Package",
+            "version": "[6.1.0, )"
+          },
           "Microsoft.AspNetCore.JsonPatch": {
             "target": "Package",
             "version": "[7.0.8, )"

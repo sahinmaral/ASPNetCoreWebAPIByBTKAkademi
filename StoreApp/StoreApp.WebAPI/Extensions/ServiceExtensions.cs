@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using StoreApp.WebAPI.Controllers;
 using StoreApp.Presentation.Controllers;
+using Marvin.Cache.Headers;
 
 namespace StoreApp.WebAPI.Extensions
 {
@@ -52,13 +53,23 @@ namespace StoreApp.WebAPI.Extensions
             {
                 config.RespectBrowserAcceptHeader = true;
                 config.ReturnHttpNotAcceptable = true;
+                config.CacheProfiles.Add("5MinsCacheProfile", new CacheProfile()
+                {
+                    Duration = 300
+                });
             })
                 .AddXmlDataContractSerializerFormatters()
                 .AddCustomCSVFormatter()
                 .AddApplicationPart(typeof(AssemblyReference).Assembly);
-                //.AddNewtonsoftJson(opt =>
-                //    opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-                //);
+        }
+
+        public static void ConfigureHTTPCacheHeaders(this IServiceCollection services)
+        {
+            services.AddHttpCacheHeaders(opt =>
+            {
+                opt.MaxAge = 70;
+                opt.CacheLocation = CacheLocation.Public;
+            });
         }
 
         public static void ConfigureActionFilters(this IServiceCollection services)
@@ -132,6 +143,11 @@ namespace StoreApp.WebAPI.Extensions
                 }
 
             });
+        }
+
+        public static void ConfigureResponseCaching(this IServiceCollection services)
+        {
+            services.AddResponseCaching();
         }
     }
 }

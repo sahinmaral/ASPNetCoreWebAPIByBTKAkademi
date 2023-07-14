@@ -1,4 +1,6 @@
 ﻿
+using Marvin.Cache.Headers;
+
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +19,8 @@ namespace StoreApp.WebAPI.Controllers
     [ServiceFilter(typeof(LogFilterAttribute))]
     [Route("api/books")]
     [ApiController]
+    //[ResponseCache(CacheProfileName = "5MinsCacheProfile")]
+    //[HttpCacheExpiration(MaxAge = 80)]
     public class BooksController : ControllerBase
     {
         private readonly IServiceManager _serviceManager;
@@ -27,6 +31,7 @@ namespace StoreApp.WebAPI.Controllers
 
         [HttpHead]
         [HttpGet(Name = nameof(GetBooks))]
+        //[ResponseCache(Duration = 60)]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         [ServiceFilter(typeof(PriceOutOfRangeCheckAttribute))]
         public IActionResult GetBooks([FromQuery] BookParameters parameters)
