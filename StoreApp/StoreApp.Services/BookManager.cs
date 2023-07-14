@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 
+using Microsoft.EntityFrameworkCore;
+
 using StoreApp.Entities.DTOs;
 using StoreApp.Entities.Enums;
 using StoreApp.Entities.Models;
@@ -97,6 +99,13 @@ namespace StoreApp.Services
             var links = _bookLinks.TryGenerateLinks(bookDtos, linkParameters.BookParameters.Fields, linkParameters.HttpContext);
 
             return (linkResponse : links, metaData : pagedList.MetaData);
+        }
+
+        public async Task<List<BookDto>> GetAll(bool trackChanges = false)
+        {
+            var books = await _repositoryManager.BookRepository.GetAll(trackChanges).ToListAsync();
+
+            return _mapper.Map <List<BookDto>>(books);
         }
 
         public BookDto? GetById(int id, bool trackChanges)

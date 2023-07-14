@@ -12,6 +12,9 @@ using StoreApp.Presentation.ActionFilters;
 using StoreApp.Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using StoreApp.WebAPI.Controllers;
+using StoreApp.Presentation.Controllers;
 
 namespace StoreApp.WebAPI.Extensions
 {
@@ -75,6 +78,25 @@ namespace StoreApp.WebAPI.Extensions
                 {
                     builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().WithExposedHeaders("X-Pagination");
                 });
+            });
+        }
+
+        public static void ConfigureVersioning(this IServiceCollection services)
+        {
+            services.AddApiVersioning(opt =>
+            {
+                opt.ReportApiVersions = true;
+                opt.AssumeDefaultVersionWhenUnspecified = true;
+                opt.DefaultApiVersion = new ApiVersion(1, 0);
+                opt.ApiVersionReader = new HeaderApiVersionReader("api-version");
+                opt.Conventions.Controller<BooksController>().HasApiVersion(new ApiVersion(1,0));
+                opt.Conventions.Controller<BooksV2Controller>().HasApiVersion(new ApiVersion(2,0));
+            });
+
+            services.AddVersionedApiExplorer(setup =>
+            {
+                setup.GroupNameFormat = "'v'VVV";
+                setup.SubstituteApiVersionInUrl = true;
             });
         }
 

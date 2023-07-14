@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "j8NwfDKJENOIRyYIQ2vAdAZobO5nT7QNOQhQTNkjewYj2qo4vZ3XUMncIGdDcVnlRdbScsJOJW64U97C21QnTQ==",
+  "dgSpecHash": "T0NHbHMbqYI9oYujLtQRpbllcv4MQSA7oh3Pp7O7ao1ZMv/DCZTF8+NbwtrPopQUZ/R0dqSQUszw6sLiOVq07A==",
   "success": true,
   "projectFilePath": "C:\\Users\\sahin\\Desktop\\Files\\GithubRepositories\\ASPNetCoreWebAPIByBTKAkademi\\StoreApp\\StoreApp.Presentation\\StoreApp.Presentation.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\7.0.8\\microsoft.aspnetcore.jsonpatch.7.0.8.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.mvc.core\\2.2.5\\microsoft.aspnetcore.mvc.core.2.2.5.nupkg.sha512",
+    "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.1.0\\microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.responsecaching.abstractions\\2.2.0\\microsoft.aspnetcore.responsecaching.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.routing\\2.2.0\\microsoft.aspnetcore.routing.2.2.0.nupkg.sha512",
     "C:\\Users\\sahin\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\2.2.0\\microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512",
