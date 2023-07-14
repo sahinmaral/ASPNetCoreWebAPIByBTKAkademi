@@ -27,11 +27,7 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo() { Title = "StoreApp v1", Version = "v1", });
-    options.SwaggerDoc("v2", new OpenApiInfo() { Title = "StoreApp v2", Version = "v2", Description = "This version is deprecated."});
-});
+builder.Services.ConfigureSwagger();
 
 builder.Services.ConfigureVersioning();
 builder.Services.RegisterRepository();

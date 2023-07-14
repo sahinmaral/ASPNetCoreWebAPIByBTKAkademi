@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 using NLog;
 
@@ -36,6 +37,53 @@ namespace StoreApp.WebAPI.Extensions
             {
                 options.UseSqlServer(configuration.GetConnectionString("SQLServerConnectionString"));
             });
+        }
+
+        public static void ConfigureSwagger(this IServiceCollection services)
+        {
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo() { 
+                    Title = "StoreApp v1", 
+                    Version = "v1", 
+                    Description = "BTK Akademi ASP.Net Core Web API",
+                    TermsOfService = new Uri("https://www.btkakademi.gov.tr/"),
+                    Contact = new OpenApiContact()
+                    {
+                        Name = "Sahin MARAL",
+                        Email = "sahin.maral@hotmail.com",
+                        Url = new Uri("https://linkedin.com/in/sahinmaral")
+                    }
+
+                });
+                options.SwaggerDoc("v2", new OpenApiInfo() { Title = "StoreApp v2", Version = "v2", Description = "This version is deprecated." });
+
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Place to add JWT with Bearer",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                    {
+                        new OpenApiSecurityScheme()
+                        {
+                            Reference = new OpenApiReference()
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                            Name = "Bearer"
+                        },
+                        new List<string>()
+                    }
+                });
+            });
+
         }
 
         public static void ConfigureIdentity(this IServiceCollection services)
@@ -158,6 +206,7 @@ namespace StoreApp.WebAPI.Extensions
             {
                 setup.GroupNameFormat = "'v'VVV";
                 setup.SubstituteApiVersionInUrl = true;
+                setup.DefaultApiVersion = new ApiVersion(1, 0);
             });
         }
 

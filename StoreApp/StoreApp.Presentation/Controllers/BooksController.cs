@@ -16,10 +16,10 @@ using System.Text.Json;
 
 namespace StoreApp.WebAPI.Controllers
 {
-    [ApiVersion("1.0")]
     [ServiceFilter(typeof(LogFilterAttribute))]
     [Route("api/books")]
     [ApiController]
+    [ApiExplorerSettings(GroupName = "v1")]
     //[ResponseCache(CacheProfileName = "5MinsCacheProfile")]
     //[HttpCacheExpiration(MaxAge = 80)]
     public class BooksController : ControllerBase
