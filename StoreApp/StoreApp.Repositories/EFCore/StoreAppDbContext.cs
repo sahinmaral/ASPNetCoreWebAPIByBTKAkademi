@@ -1,5 +1,6 @@
 ﻿
 
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 using StoreApp.Entities.Models;
@@ -7,7 +8,7 @@ using StoreApp.Repositories.EFCore.Config;
 
 namespace StoreApp.Repositories.EFCore
 {
-    public class StoreAppDbContext : DbContext
+    public class StoreAppDbContext : IdentityDbContext<User>
     {
         public StoreAppDbContext(DbContextOptions options) : base(options)
         {
@@ -15,6 +16,7 @@ namespace StoreApp.Repositories.EFCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(BookConfiguration).Assembly);
         }
 

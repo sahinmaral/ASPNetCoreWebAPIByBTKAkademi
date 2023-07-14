@@ -1,6 +1,7 @@
 ﻿
 using Marvin.Cache.Headers;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,6 +30,7 @@ namespace StoreApp.WebAPI.Controllers
             _serviceManager = serviceManager;
         }
 
+        [Authorize]
         [HttpHead]
         [HttpGet(Name = nameof(GetBooks))]
         //[ResponseCache(Duration = 60)]
@@ -51,6 +53,7 @@ namespace StoreApp.WebAPI.Controllers
                 Ok(result.linkResponse.ShapedEntities);
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBookById([FromRoute] int id)
         {
@@ -61,6 +64,7 @@ namespace StoreApp.WebAPI.Controllers
             return Ok(foundProduct);
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [HttpPost(Name = nameof(InsertBook))]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> InsertBook([FromBody] BookDtoForCreate dto)
@@ -70,6 +74,7 @@ namespace StoreApp.WebAPI.Controllers
             return StatusCode(201, book);
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [HttpPut("{id}")]
         [ServiceFilter(typeof(NotFoundFilterAttribute<Book>))]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
@@ -80,6 +85,7 @@ namespace StoreApp.WebAPI.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         [ServiceFilter(typeof(NotFoundFilterAttribute<Book>))]
         public async Task<IActionResult> DeleteBook([FromRoute] int id)
@@ -88,6 +94,7 @@ namespace StoreApp.WebAPI.Controllers
             return Ok($"Book with {id} id has been deleted");
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [HttpPatch("{id:int}")]
         [ServiceFilter(typeof(NotFoundFilterAttribute<Book>))]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
@@ -108,6 +115,7 @@ namespace StoreApp.WebAPI.Controllers
             return NoContent();
         }
 
+        [Authorize]
         [HttpOptions]
         public IActionResult GetBooksOptions()
         {

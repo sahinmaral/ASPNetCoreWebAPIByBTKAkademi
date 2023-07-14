@@ -12,6 +12,7 @@ namespace StoreApp.WebAPI.Utilities.Mapping
             CreateMap<Book, BookDto>();
             CreateMap<BookDtoForCreate, Book>();
             CreateMap<Book, BookDtoForUpdate>().ReverseMap();
+            CreateMap<UserForRegistrationDto, User>();
         }
     }
 }

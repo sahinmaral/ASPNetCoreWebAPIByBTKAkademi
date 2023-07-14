@@ -1,32 +1,81 @@
-﻿using Microsoft.EntityFrameworkCore;
-using StoreApp.Presentation;
+﻿using AspNetCoreRateLimit;
+
+using Marvin.Cache.Headers;
+
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+
 using NLog;
 
+using StoreApp.Entities.DTOs;
+using StoreApp.Entities.Models;
+using StoreApp.Presentation;
+using StoreApp.Presentation.ActionFilters;
+using StoreApp.Presentation.Controllers;
 using StoreApp.Repositories.Abstract;
 using StoreApp.Repositories.EFCore;
 using StoreApp.Services;
 using StoreApp.Services.Abstract;
-
-using System.ComponentModel.Design;
-using StoreApp.Presentation.ActionFilters;
-using StoreApp.Entities.DTOs;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.AspNetCore.Mvc.Versioning;
 using StoreApp.WebAPI.Controllers;
-using StoreApp.Presentation.Controllers;
-using Marvin.Cache.Headers;
-using AspNetCoreRateLimit;
+
+using System.Text;
 
 namespace StoreApp.WebAPI.Extensions
 {
     public static class ServiceExtensions
     {
-        public static void ConfigureDbContext(this IServiceCollection services,IConfiguration configuration)
+        public static void ConfigureDbContext(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<StoreAppDbContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("SQLServerConnectionString"));
+            });
+        }
+
+        public static void ConfigureIdentity(this IServiceCollection services)
+        {
+            var builder = services.AddIdentity<User, IdentityRole>(opt =>
+            {
+                opt.Password.RequireDigit = true;
+                opt.Password.RequireNonAlphanumeric = true;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireUppercase = true;
+                opt.Password.RequiredLength = 6;
+
+                opt.User.RequireUniqueEmail = true;
+
+            })
+                .AddEntityFrameworkStores<StoreAppDbContext>()
+                .AddDefaultTokenProviders();
+        }
+
+        public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
+        {
+            var jwtSettings = configuration.GetSection("JwtSettings");
+            var secretKey = jwtSettings["secretKey"];
+
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(opt =>
+            {
+                opt.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = jwtSettings["validIssuer"],
+                    ValidAudience = jwtSettings["validAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+                };
             });
         }
 
@@ -44,7 +93,7 @@ namespace StoreApp.WebAPI.Extensions
 
         public static void ConfigureLogging(this IServiceCollection services)
         {
-            LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(),"./nlog.config"));
+            LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "./nlog.config"));
             services.AddSingleton<ILoggerService, LoggerManager>();
         }
 
@@ -101,8 +150,8 @@ namespace StoreApp.WebAPI.Extensions
                 opt.AssumeDefaultVersionWhenUnspecified = true;
                 opt.DefaultApiVersion = new ApiVersion(1, 0);
                 opt.ApiVersionReader = new HeaderApiVersionReader("api-version");
-                opt.Conventions.Controller<BooksController>().HasApiVersion(new ApiVersion(1,0));
-                opt.Conventions.Controller<BooksV2Controller>().HasApiVersion(new ApiVersion(2,0));
+                opt.Conventions.Controller<BooksController>().HasApiVersion(new ApiVersion(1, 0));
+                opt.Conventions.Controller<BooksV2Controller>().HasApiVersion(new ApiVersion(2, 0));
             });
 
             services.AddVersionedApiExplorer(setup =>
@@ -119,7 +168,7 @@ namespace StoreApp.WebAPI.Extensions
                 new RateLimitRule()
                 {
                     Endpoint = "*",
-                    Limit = 3,
+                    Limit = 20,
                     Period = "1m"
                 }
             };
@@ -129,8 +178,8 @@ namespace StoreApp.WebAPI.Extensions
                 opt.GeneralRules = rateLimitRules;
             });
 
-            services.AddSingleton(typeof(IRateLimitCounterStore),typeof(MemoryCacheRateLimitCounterStore));
-            services.AddSingleton(typeof(IIpPolicyStore),typeof(MemoryCacheIpPolicyStore));
+            services.AddSingleton(typeof(IRateLimitCounterStore), typeof(MemoryCacheRateLimitCounterStore));
+            services.AddSingleton(typeof(IIpPolicyStore), typeof(MemoryCacheIpPolicyStore));
             services.AddSingleton(typeof(IRateLimitConfiguration), typeof(RateLimitConfiguration));
             services.AddSingleton(typeof(IProcessingStrategy), typeof(AsyncKeyLockProcessingStrategy));
         }
@@ -143,7 +192,7 @@ namespace StoreApp.WebAPI.Extensions
                 .OutputFormatters
                 .OfType<SystemTextJsonOutputFormatter>()?.FirstOrDefault();
 
-                if(systemTextJsonOutputFormatter is not null)
+                if (systemTextJsonOutputFormatter is not null)
                 {
                     systemTextJsonOutputFormatter.SupportedMediaTypes
                     .Add("application/vnd.storeapp.hateoas+json");

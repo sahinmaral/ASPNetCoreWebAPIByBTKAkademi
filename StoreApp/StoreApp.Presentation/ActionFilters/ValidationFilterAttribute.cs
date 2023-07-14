@@ -22,14 +22,14 @@ namespace StoreApp.Presentation.ActionFilters
             if (param is null)
             {
                 context.Result = new BadRequestObjectResult($"Object is null. " +
-                    $"Controller : {controller} " +
+                    $"Controller : {controller} , " +
                     $"Action : {action}");
                 return;
             }
 
-            if(!context.ModelState.IsValid)
+            if (!context.ModelState.IsValid)
                 context.Result = new UnprocessableEntityObjectResult(context.ModelState);
-            
+
 
         }
     }

@@ -9,6 +9,7 @@ namespace StoreApp.Services.Abstract
     public interface IServiceManager
     {
         IBookService BookService { get; }
+        IAuthenticationService AuthenticationService { get; }
 
         public object this[string propertyName]
         {
