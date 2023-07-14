@@ -1,3 +1,5 @@
+using AspNetCoreRateLimit;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 
@@ -39,6 +41,9 @@ builder.Services.ConfigureCors();
 builder.Services.AddCustomMediaTypes();
 builder.Services.ConfigureResponseCaching();
 builder.Services.ConfigureHTTPCacheHeaders();
+builder.Services.AddMemoryCache();
+builder.Services.ConfigureRateLimitingOptions();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -57,6 +62,7 @@ if(app.Environment.IsProduction())
 }
 
 app.UseHttpsRedirection();
+app.UseIpRateLimiting();
 app.UseCors();
 app.UseResponseCaching();
 app.UseHttpCacheHeaders();

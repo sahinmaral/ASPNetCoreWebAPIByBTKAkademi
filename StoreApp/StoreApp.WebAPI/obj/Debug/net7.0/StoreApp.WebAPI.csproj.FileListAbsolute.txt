@@ -95,3 +95,4 @@ C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\Sto
 C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Versioning.dll
 C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
 C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\bin\Debug\net7.0\Marvin.Cache.Headers.dll
+C:\Users\sahin\Desktop\Files\GithubRepositories\ASPNetCoreWebAPIByBTKAkademi\StoreApp\StoreApp.WebAPI\bin\Debug\net7.0\AspNetCoreRateLimit.dll

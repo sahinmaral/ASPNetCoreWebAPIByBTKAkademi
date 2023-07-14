@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "StoreApp.WebAPI/1.0.0": {
         "dependencies": {
+          "AspNetCoreRateLimit": "5.0.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.8",
           "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": "5.1.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.0",
@@ -22,6 +23,20 @@
         },
         "runtime": {
           "StoreApp.WebAPI.dll": {}
+        }
+      },
+      "AspNetCoreRateLimit/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Options": "7.0.0",
+          "Newtonsoft.Json": "13.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/AspNetCoreRateLimit.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.0.2.0"
+          }
         }
       },
       "AutoMapper/12.0.1": {
@@ -167,7 +182,7 @@
       "Microsoft.AspNetCore.JsonPatch/7.0.8": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
-          "Newtonsoft.Json": "13.0.1"
+          "Newtonsoft.Json": "13.0.2"
         },
         "runtime": {
           "lib/net7.0/Microsoft.AspNetCore.JsonPatch.dll": {
@@ -204,7 +219,7 @@
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.8": {
         "dependencies": {
           "Microsoft.AspNetCore.JsonPatch": "7.0.8",
-          "Newtonsoft.Json": "13.0.1",
+          "Newtonsoft.Json": "13.0.2",
           "Newtonsoft.Json.Bson": "1.0.2"
         },
         "runtime": {
@@ -628,17 +643,17 @@
           }
         }
       },
-      "Newtonsoft.Json/13.0.1": {
+      "Newtonsoft.Json/13.0.2": {
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
-            "fileVersion": "13.0.1.25517"
+            "fileVersion": "13.0.2.27524"
           }
         }
       },
       "Newtonsoft.Json.Bson/1.0.2": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.1"
+          "Newtonsoft.Json": "13.0.2"
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
@@ -987,6 +1002,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AspNetCoreRateLimit/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6fq9+o1maGADUmpK/PvcF0DtXW2+7bSkIL7MDIo/agbIHKN8XkMQF4oze60DO731WaQmHmK260hB30FwPzCmEg==",
+      "path": "aspnetcoreratelimit/5.0.0",
+      "hashPath": "aspnetcoreratelimit.5.0.0.nupkg.sha512"
     },
     "AutoMapper/12.0.1": {
       "type": "package",
@@ -1464,12 +1486,12 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
-    "Newtonsoft.Json/13.0.1": {
+    "Newtonsoft.Json/13.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
-      "path": "newtonsoft.json/13.0.1",
-      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+      "sha512": "sha512-R2pZ3B0UjeyHShm9vG+Tu0EBb2lC8b0dFzV9gVn50ofHXh9Smjk6kTn7A/FdAsC8B5cKib1OnGYOXxRBz5XQDg==",
+      "path": "newtonsoft.json/13.0.2",
+      "hashPath": "newtonsoft.json.13.0.2.nupkg.sha512"
     },
     "Newtonsoft.Json.Bson/1.0.2": {
       "type": "package",

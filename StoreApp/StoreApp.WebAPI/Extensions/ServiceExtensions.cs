@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using StoreApp.WebAPI.Controllers;
 using StoreApp.Presentation.Controllers;
 using Marvin.Cache.Headers;
+using AspNetCoreRateLimit;
 
 namespace StoreApp.WebAPI.Extensions
 {
@@ -109,6 +110,29 @@ namespace StoreApp.WebAPI.Extensions
                 setup.GroupNameFormat = "'v'VVV";
                 setup.SubstituteApiVersionInUrl = true;
             });
+        }
+
+        public static void ConfigureRateLimitingOptions(this IServiceCollection services)
+        {
+            var rateLimitRules = new List<RateLimitRule>()
+            {
+                new RateLimitRule()
+                {
+                    Endpoint = "*",
+                    Limit = 3,
+                    Period = "1m"
+                }
+            };
+
+            services.Configure<IpRateLimitOptions>(opt =>
+            {
+                opt.GeneralRules = rateLimitRules;
+            });
+
+            services.AddSingleton(typeof(IRateLimitCounterStore),typeof(MemoryCacheRateLimitCounterStore));
+            services.AddSingleton(typeof(IIpPolicyStore),typeof(MemoryCacheIpPolicyStore));
+            services.AddSingleton(typeof(IRateLimitConfiguration), typeof(RateLimitConfiguration));
+            services.AddSingleton(typeof(IProcessingStrategy), typeof(AsyncKeyLockProcessingStrategy));
         }
 
         public static void AddCustomMediaTypes(this IServiceCollection services)
