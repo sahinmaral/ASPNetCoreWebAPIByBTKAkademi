@@ -54,6 +54,28 @@ namespace StoreApp.WebAPI.Controllers
         }
 
         [Authorize]
+        [HttpGet("detail")]
+        //[ResponseCache(Duration = 60)]
+        [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
+        [ServiceFilter(typeof(PriceOutOfRangeCheckAttribute))]
+        public IActionResult GetBooksByDetail([FromQuery] BookParameters parameters)
+        {
+            var linkParameters = new LinkParameters()
+            {
+                BookParameters = parameters,
+                HttpContext = HttpContext
+            };
+
+            var result = _serviceManager.BookService.GetAllWithDetails(linkParameters);
+
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(result.metaData));
+
+            return result.linkResponse.HasLinks ?
+                Ok(result.linkResponse.LinkedEntities) :
+                Ok(result.linkResponse.ShapedEntities);
+        }
+
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBookById([FromRoute] int id)
         {

@@ -5,15 +5,16 @@ namespace StoreApp.Repositories.EFCore
     public class RepositoryManager : IRepositoryManager
     {
         private readonly StoreAppDbContext _context;
-        private readonly Lazy<BookRepository> _bookRepository;
 
-        public RepositoryManager(StoreAppDbContext context)
+        public RepositoryManager(StoreAppDbContext context,IBookRepository bookRepository,ICategoryRepository categoryRepository)
         {
             _context = context;
-            _bookRepository = new Lazy<BookRepository>(() => new BookRepository(_context));
+            _bookRepository = bookRepository;
+            _categoryRepository = categoryRepository;
         }
 
-        public IBookRepository BookRepository => _bookRepository.Value;
+        public IBookRepository BookRepository => _bookRepository;
+        public ICategoryRepository CategoryRepository => _categoryRepository;
 
         public void Save()
         {

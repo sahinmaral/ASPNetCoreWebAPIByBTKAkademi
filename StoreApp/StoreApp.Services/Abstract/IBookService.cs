@@ -8,6 +8,7 @@ namespace StoreApp.Services.Abstract
     public interface IBookService : IServiceBase<Book>
     {
         (LinkResponse linkResponse, MetaData metaData) GetAll(LinkParameters linkParameters, bool trackChanges = false);
+        (LinkResponse linkResponse, MetaData metaData) GetAllWithDetails(LinkParameters linkParameters, bool trackChanges = false);
         Task<List<BookDto>> GetAll(bool trackChanges = false);
         BookDto? GetById(int id, bool trackChanges = false);
         Task<BookDto?> GetByIdAsync(int id, bool trackChanges = false);

@@ -130,13 +130,19 @@ namespace StoreApp.WebAPI.Extensions
         public static void RegisterRepository(this IServiceCollection services)
         {
             services.AddScoped<IRepositoryManager, RepositoryManager>();
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
 
         public static void RegisterServices(this IServiceCollection services)
         {
             services.AddScoped<IServiceManager, ServiceManager>();
-            services.AddScoped<IDataShaper<BookDto>, DataShaper<BookDto>>();
-            services.AddScoped<IBookLinks, BookLinks>();
+            services.AddScoped(typeof(IDataShaper<>), typeof(DataShaper<>));
+            services.AddScoped(typeof(IBookLinks<>), typeof(BookLinks<>));
+
+            services.AddScoped<IBookService, BookManager>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<IAuthenticationService, AuthenticationManager>();
         }
 
         public static void ConfigureLogging(this IServiceCollection services)

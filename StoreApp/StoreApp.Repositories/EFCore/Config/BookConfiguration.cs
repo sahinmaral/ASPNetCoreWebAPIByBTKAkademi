@@ -10,9 +10,9 @@ namespace StoreApp.Repositories.EFCore.Config
         public void Configure(EntityTypeBuilder<Book> builder)
         {
             builder.HasData(
-                new Book() { Id = 1, Title = "Karagoz ve Hacivat", Price = 75 },
-                new Book() { Id = 2, Title = "Mesnevi", Price = 150 },
-                new Book() { Id = 3, Title = "Dede Korkut", Price = 75 }
+                new Book() { Id = 286, Title = "Karagoz ve Hacivat", Price = 75,CategoryId = 1 },
+                new Book() { Id = 287, Title = "Mesnevi", Price = 150, CategoryId = 2 },
+                new Book() { Id = 288, Title = "Dede Korkut", Price = 75, CategoryId = 1 }
                 );
         }
     }

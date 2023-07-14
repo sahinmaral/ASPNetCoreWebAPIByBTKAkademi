@@ -16,9 +16,9 @@ namespace StoreApp.Repositories.EFCore
             _context = context;
         }
 
-        public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
+        public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression,bool trackChanges)
         {
-            return await _context.Set<T>().AnyAsync(expression);
+            return trackChanges ? await _context.Set<T>().AnyAsync(expression) : await _context.Set<T>().AsNoTracking().AnyAsync(expression);
         }
 
         public void Create(T entity)
@@ -31,17 +31,17 @@ namespace StoreApp.Repositories.EFCore
             _context.Set<T>().Remove(entity);
         }
 
-        public IQueryable<T> GetAll(bool trackChanges = false)
+        public IQueryable<T> GetAll(bool trackChanges)
         {
             return trackChanges ? _context.Set<T>() : _context.Set<T>().AsNoTracking();
         }
 
-        public IQueryable<T> GetAllByCondition(System.Linq.Expressions.Expression<Func<T, bool>> expression, bool trackChanges = false)
+        public IQueryable<T> GetAllByCondition(Expression<Func<T, bool>> expression, bool trackChanges)
         {
             return trackChanges ? _context.Set<T>().Where(expression) : _context.Set<T>().Where(expression).AsNoTracking();
         }
 
-        public T? GetById(int id, bool trackChanges = false)
+        public T? GetById(int id, bool trackChanges)
         {
             return trackChanges ? _context.Set<T>().SingleOrDefault(x => x.Id == id) : _context.Set<T>().AsNoTracking().SingleOrDefault(x => x.Id == id);
         }

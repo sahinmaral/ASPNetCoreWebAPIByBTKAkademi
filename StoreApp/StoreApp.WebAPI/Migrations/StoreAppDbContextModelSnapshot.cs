@@ -51,22 +51,22 @@ namespace StoreApp.WebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e3c22978-c9d0-4e4a-a5e5-fee9ddf41697",
-                            ConcurrencyStamp = "8e11d46a-f297-425c-9aa3-c8f23cd487fe",
+                            Id = "3d223de1-f3fc-4465-a37c-62ef906e3d6c",
+                            ConcurrencyStamp = "ca85066a-95da-41f2-aa2d-ab9fbec1d3e5",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "85fda8a3-283a-4168-8dd5-4bcd10bb1d8d",
-                            ConcurrencyStamp = "ad25de65-9013-4082-9290-de888f8f350f",
+                            Id = "ba0d4f54-44ea-4c6c-a75c-47cc7e876720",
+                            ConcurrencyStamp = "ea02b414-ec87-4305-afd7-773e8e009907",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "1f5d1cbd-dfd6-4442-a5c0-10aec38420d4",
-                            ConcurrencyStamp = "935b90b5-deef-4e0f-9c56-38658d067ec5",
+                            Id = "2680a296-27f4-4624-951e-f4eb3c21dfc3",
+                            ConcurrencyStamp = "189cee9b-468c-47d8-8f3c-808ed6834502",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -186,14 +186,18 @@ namespace StoreApp.WebAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Books");
 
@@ -201,20 +205,56 @@ namespace StoreApp.WebAPI.Migrations
                         new
                         {
                             Id = 1,
+                            CategoryId = 1,
                             Price = 75m,
                             Title = "Karagoz ve Hacivat"
                         },
                         new
                         {
                             Id = 2,
+                            CategoryId = 2,
                             Price = 150m,
                             Title = "Mesnevi"
                         },
                         new
                         {
                             Id = 3,
+                            CategoryId = 1,
                             Price = 75m,
                             Title = "Dede Korkut"
+                        });
+                });
+
+            modelBuilder.Entity("StoreApp.Entities.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Computer Science"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Network"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Database Management Systems"
                         });
                 });
 
@@ -344,6 +384,22 @@ namespace StoreApp.WebAPI.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("StoreApp.Entities.Models.Book", b =>
+                {
+                    b.HasOne("StoreApp.Entities.Models.Category", "Category")
+                        .WithMany("Books")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("StoreApp.Entities.Models.Category", b =>
+                {
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

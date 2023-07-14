@@ -6,8 +6,9 @@ using StoreApp.Entities.Models.LinkModels;
 
 namespace StoreApp.Services.Abstract
 {
-    public interface IBookLinks
+    public interface IBookLinks<T> where T : BookDto
     {
-        LinkResponse TryGenerateLinks(IEnumerable<BookDto> bookDtos, string fields, HttpContext httpContext);
+        LinkResponse TryGenerateLinks(IEnumerable<T> dtos, string fields, HttpContext httpContext);
+        
     }
 }

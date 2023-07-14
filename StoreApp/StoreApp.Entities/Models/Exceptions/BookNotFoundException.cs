@@ -5,5 +5,6 @@
         public BookNotFoundException(int id) : base($"Book with {id} could not found")
         {
         }
+
     }
 }

@@ -20,18 +20,21 @@ namespace StoreApp.Services
         private readonly IRepositoryManager _repositoryManager;
         private readonly ILoggerService _loggerService;
         private readonly IMapper _mapper;
-        private readonly IBookLinks _bookLinks;
-        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService, IMapper mapper, IBookLinks bookLinks)
+        private readonly IBookLinks<BookDto> _bookLinksForBookDto;
+        private readonly IBookLinks<BookWithDetailsDto> _bookLinksForBookWithDetailsDto;
+
+        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService, IMapper mapper, IBookLinks<BookDto> bookLinksForBookDto, IBookLinks<BookWithDetailsDto> bookLinksForBookWithDetailsDto)
         {
             _repositoryManager = repositoryManager;
             _loggerService = loggerService;
             _mapper = mapper;
-            _bookLinks = bookLinks;
+            _bookLinksForBookDto = bookLinksForBookDto;
+            _bookLinksForBookWithDetailsDto = bookLinksForBookWithDetailsDto;
         }
 
-        public async Task<bool> AnyAsync(Expression<Func<Book, bool>> expression)
+        public async Task<bool> AnyAsync(Expression<Func<Book, bool>> expression,bool trackChanges)
         {
-            return await _repositoryManager.BookRepository.AnyAsync(expression);
+            return await _repositoryManager.BookRepository.AnyAsync(expression,trackChanges);
         }
 
         public BookDto Create(BookDtoForCreate dto)
@@ -96,16 +99,35 @@ namespace StoreApp.Services
 
             var bookDtos = _mapper.Map<IEnumerable<BookDto>>(pagedList);
 
-            var links = _bookLinks.TryGenerateLinks(bookDtos, linkParameters.BookParameters.Fields, linkParameters.HttpContext);
+            var links = _bookLinksForBookDto.TryGenerateLinks(bookDtos, linkParameters.BookParameters.Fields, linkParameters.HttpContext);
 
             return (linkResponse : links, metaData : pagedList.MetaData);
         }
-
         public async Task<List<BookDto>> GetAll(bool trackChanges = false)
         {
             var books = await _repositoryManager.BookRepository.GetAll(trackChanges).ToListAsync();
 
             return _mapper.Map <List<BookDto>>(books);
+        }
+
+        public (LinkResponse linkResponse, MetaData metaData) GetAllWithDetails(LinkParameters linkParameters, bool trackChanges)
+        {
+            var books = _repositoryManager
+                .BookRepository
+                .GetAll(trackChanges)
+                .Include(b => b.Category)
+                .AsQueryable()
+                .FilterBooksByPrice(linkParameters.BookParameters.MinPrice, linkParameters.BookParameters.MaxPrice)
+                .SearchByTitle(linkParameters.BookParameters.SearchTerm)
+                .Sort(linkParameters.BookParameters.OrderBy);
+
+            var pagedList = PagedList<Book>.ToPagedList(books, linkParameters.BookParameters.PageNumber, linkParameters.BookParameters.PageSize);
+
+            var bookDtos = _mapper.Map<IEnumerable<BookWithDetailsDto>>(pagedList);
+
+            var links = _bookLinksForBookWithDetailsDto.TryGenerateLinks(bookDtos, linkParameters.BookParameters.Fields, linkParameters.HttpContext);
+
+            return (linkResponse: links, metaData: pagedList.MetaData);
         }
 
         public BookDto? GetById(int id, bool trackChanges)

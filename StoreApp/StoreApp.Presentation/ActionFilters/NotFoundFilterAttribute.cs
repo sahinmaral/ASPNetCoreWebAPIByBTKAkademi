@@ -1,16 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 
 using StoreApp.Entities.Models.Abstract;
 using StoreApp.Entities.Models.Exceptions;
-using StoreApp.Services;
 using StoreApp.Services.Abstract;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace StoreApp.Presentation.ActionFilters
 {
@@ -36,7 +30,7 @@ namespace StoreApp.Presentation.ActionFilters
             var serviceManagerRequiredServicePropertyInfo = serviceManagerAllServicesPropertyInfos.First(p => p.Name.Contains(typeof(T).Name));
 
             var requiredService = (IServiceBase<T>)_serviceManager[serviceManagerRequiredServicePropertyInfo.Name];
-            
+
             var anyEntity = await requiredService.AnyAsync(x => x.Id == entityId);
             if (anyEntity)
             {
@@ -44,7 +38,14 @@ namespace StoreApp.Presentation.ActionFilters
                 return;
             }
 
-            throw new BookNotFoundException(entityId);
+
+            Assembly locatedAssembly = Assembly.GetAssembly(typeof(NotFoundException));
+            string locatedNamespace = typeof(NotFoundException).Namespace;
+
+            var exceptionType = Type.GetType($"{locatedNamespace}.{typeof(T).Name}NotFoundException, {locatedAssembly.FullName}");
+            Exception exception = (Exception)Activator.CreateInstance(exceptionType, entityId);
+
+            throw exception;
         }
     }
 }

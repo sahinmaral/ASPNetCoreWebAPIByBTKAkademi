@@ -6,38 +6,32 @@ using StoreApp.Entities.DTOs;
 using StoreApp.Entities.Models.LinkModels;
 using StoreApp.Services.Abstract;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace StoreApp.Services
 {
-    public class BookLinks : IBookLinks
+    public class BookLinks<T> : IBookLinks<T> where T:BookDto
     {
         private readonly LinkGenerator _linkGenerator;
-        private readonly IDataShaper<BookDto> _dataShaper;
+        private readonly IDataShaper<T> _dataShaper;
 
-        public BookLinks(LinkGenerator linkGenerator, IDataShaper<BookDto> dataShaper)
+        public BookLinks(LinkGenerator linkGenerator, IDataShaper<T> dataShaper)
         {
             _linkGenerator = linkGenerator;
             _dataShaper = dataShaper;
         }
-        public LinkResponse TryGenerateLinks(IEnumerable<BookDto> bookDtos, string fields, HttpContext httpContext)
+        public LinkResponse TryGenerateLinks(IEnumerable<T> dtos, string fields, HttpContext httpContext)
         {
-            var shapedBooks = ShapeData(bookDtos, fields);
+            var shapedBooks = ShapeData(dtos, fields);
             if (ShouldGenerateLinks(httpContext))
-                return ReturnLinkedBooks(bookDtos,fields,httpContext,shapedBooks);
+                return ReturnLinkedBooks(dtos, fields,httpContext,shapedBooks);
             return ReturnShapedBooks(shapedBooks);
         }
 
-        private LinkResponse ReturnLinkedBooks(IEnumerable<BookDto> bookDtos, string fields, HttpContext httpContext, List<Entity> shapedBooks)
+        private LinkResponse ReturnLinkedBooks(IEnumerable<T> dtos, string fields, HttpContext httpContext, List<Entity> shapedBooks)
         {
-            var bookDtoList = bookDtos.ToList();
-            for (int index = 0; index < bookDtoList.Count; index++)
+            var dtoList = dtos.ToList();
+            for (int index = 0; index < dtoList.Count; index++)
             {
-                var bookLinks = CreateForBook(httpContext, bookDtoList[index], fields);
+                var bookLinks = CreateForBook(httpContext, dtoList[index], fields);
                 shapedBooks[index].Add("Links", bookLinks);
             }
 
@@ -61,14 +55,14 @@ namespace StoreApp.Services
             return bookCollectionWrapper;
         }
 
-        private List<Link> CreateForBook(HttpContext httpContext, BookDto bookDto, string fields)
+        private List<Link> CreateForBook(HttpContext httpContext, T dto, string fields)
         {
             var links = new List<Link>()
             {
                 new Link()
                 {
                     HyperReference = $"/api/{httpContext.GetRouteData().Values["controller"].ToString().ToLower()}" +
-                    $"/{bookDto.Id}",
+                    $"/{dto.Id}",
                     Relation = "self",
                     Method = "GET"
                 },
@@ -95,9 +89,9 @@ namespace StoreApp.Services
                 .EndsWith("hateoas", StringComparison.InvariantCultureIgnoreCase);
         }
 
-        private List<Entity> ShapeData(IEnumerable<BookDto> bookDtos, string fields)
+        private List<Entity> ShapeData(IEnumerable<T> dtos, string fields)
         {
-            return _dataShaper.ShapeData(bookDtos, fields).Select(se => se.Entity).ToList();
+            return _dataShaper.ShapeData(dtos, fields).Select(se => se.Entity).ToList();
         }
     }
 }
